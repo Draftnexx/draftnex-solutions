@@ -1,147 +1,221 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Draftnex Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Draftnex Solutions – Konzeption, Texte und digitale Lösungen aus einer Hand." />
+  <meta charset="UTF-8">
+  <title>Draftnex Solutions – Klare Struktur. Starke Texte.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Draftnex Solutions – Struktur, Texte und digitale Konzepte für Selbstständige und kleine Unternehmen.">
+
   <style>
-    body {
+    /* ==============================
+       BASIC RESET & STYLE
+       ============================== */
+    * {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #f3f3f3;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      background: #020617;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+
+    a {
+      color: #a5f3fc;
+      text-decoration: none;
+    }
+
+    /* ==============================
+       HEADER / HERO
+       ============================== */
     header {
-      padding: 2rem 1.5rem;
+      padding: 4rem 1.5rem 3rem;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+
     .logo {
-      font-weight: 700;
-      letter-spacing: 0.15em;
       text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-weight: 600;
+      opacity: 0.7;
       font-size: 0.85rem;
-      opacity: 0.8;
     }
-    h1 {
-      margin-top: 1rem;
-      font-size: 2.4rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 3rem;
-    }
-    .tagline {
-      font-size: 1.1rem;
-      opacity: 0.85;
-      margin-bottom: 2rem;
-    }
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      .grid {
-        grid-template-columns: 2fr 1.5fr;
-        align-items: start;
-      }
-    }
-    .card {
-      padding: 1.5rem;
-      border-radius: 1rem;
-      background: radial-gradient(circle at top left, #111827, #020617);
-      border: 1px solid rgba(148,163,184,0.3);
-    }
-    h2 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      font-size: 1.4rem;
-    }
-    p {
-      line-height: 1.6;
-    }
-    ul {
-      padding-left: 1.1rem;
-      margin: 0.3rem 0 0.8rem;
-    }
-    li {
-      margin-bottom: 0.25rem;
-    }
-    .pill {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.9;
-      margin-bottom: 0.75rem;
-    }
-    .cta {
+
+    .hero-title {
       margin-top: 1.2rem;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .hero-sub {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      opacity: 0.85;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-main {
+      margin-top: 1.8rem;
       display: inline-block;
-      padding: 0.7rem 1.1rem;
+      padding: 0.9rem 2rem;
       border-radius: 999px;
       border: 1px solid rgba(94,234,212,0.9);
-      text-decoration: none;
       color: #e5e7eb;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
+
+    /* ==============================
+       CONTENT SECTIONS
+       ============================== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #f1f5f9;
+    }
+
+    /* Grid layout */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.7rem;
+      font-size: 1.4rem;
+      color: #f1f5f9;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+      opacity: 0.9;
+    }
+
+    /* ==============================
+       FOOTER
+       ============================== */
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      opacity: 0.7;
+      padding: 2rem 1rem;
+      opacity: 0.6;
+      font-size: 0.85rem;
     }
+
   </style>
 </head>
+
 <body>
+
+  <!-- ==============================
+       HERO SECTION
+       ============================== -->
   <header>
     <div class="logo">Draftnex Solutions</div>
-    <h1>Klare Struktur. Starke Texte. Digitale Lösungen.</h1>
-  </header>
-  <main>
-    <p class="tagline">
-      Draftnex Solutions unterstützt Einzelpersonen und kleine Unternehmen beim Aufbau einer
-      professionellen, klar strukturierten Präsenz – von der Konzeption bis zum fertigen Text.
+    <h1 class="hero-title">Klare Struktur. Starke Texte. Digitale Lösungen.</h1>
+    <p class="hero-sub">
+      Draftnex Solutions entwickelt klare, verständliche Konzepte für Webseiten, Marken und Selbstständige.
+      Präzise Texte, strukturierte Inhalte und moderne digitale Ansätze – alles aus einer Hand.
     </p>
 
-    <div class="grid">
-      <section class="card">
-        <div class="pill">Leistungen</div>
-        <h2>Was Draftnex Solutions bietet</h2>
-        <ul>
-          <li>Konzeption von Webseiten und digitalen Auftritten</li>
-          <li>Professionelle Texte & Struktur für Landingpages</li>
-          <li>Unterstützung beim Aufbau der Selbstständigkeit</li>
-          <li>KI-gestützte Optimierung von Prozessen und Inhalten</li>
-        </ul>
-        <p>
-          Ziel ist es, Klarheit zu schaffen – nach außen für deine Kund:innen
-          und nach innen für deine eigene Arbeit.
-        </p>
-      </section>
+    <a class="cta-main" href="#services">Mehr über die Leistungen</a>
+  </header>
 
-      <section class="card">
-        <div class="pill">Kontakt</div>
-        <h2>In Kontakt treten</h2>
+
+  <!-- ==============================
+       SERVICES
+       ============================== -->
+  <main>
+
+    <h2 id="services" class="section-title">Leistungen</h2>
+
+    <div class="grid grid-2">
+
+      <div class="card">
+        <h3>Webstruktur & digitale Konzepte</h3>
         <p>
-          Aktuell befindet sich Draftnex Solutions im Aufbau. Wenn du Interesse an einer
-          Zusammenarbeit hast, erreichst du mich per E-Mail:
+          Planung und Strukturierung professioneller Websites – klar, verständlich, logisch.
         </p>
+        <ul>
+          <li>Struktur für Landingpages</li>
+          <li>Konzeptentwicklung</li>
+          <li>Analyse & Optimierung</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Professionelle Texte</h3>
         <p>
-          <strong>E-Mail:</strong> <a href="mailto:info@draftnex-solutions.de">info@draftnex-solutions.de</a>
+          Präzise, verständliche Inhalte für Selbstständige und kleine Unternehmen.
         </p>
-        <p style="font-size:0.85rem; opacity:0.8;">
-          (Adresse wird angepasst, sobald die finale Domain feststeht.)
+        <ul>
+          <li>Website-Texte</li>
+          <li>Produkt-/Dienstleistungsbeschreibungen</li>
+          <li>Über-mich & Markenstory</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Unterstützung bei Selbstständigkeit</h3>
+        <p>
+          Begleitung beim Aufbau deines Projekts – strukturiert und realistisch.
         </p>
-      </section>
+        <ul>
+          <li>Planung & Organisation</li>
+          <li>Prozessoptimierung</li>
+          <li>Beratung zu digitalen Tools</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>KI-gestützte Optimierung</h3>
+        <p>
+          Moderne Methoden, um Inhalte und Abläufe effizienter zu gestalten.
+        </p>
+        <ul>
+          <li>Content-Optimierung</li>
+          <li>Struktur & Automatisierung</li>
+          <li>Qualitätssicherung</li>
+        </ul>
+      </div>
+
     </div>
+
   </main>
 
+  <!-- ==============================
+       FOOTER
+       ============================== -->
   <footer>
     © <span id="year"></span> Draftnex Solutions
   </footer>
@@ -149,5 +223,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
