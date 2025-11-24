@@ -17,6 +17,31 @@
 
     a { color: #a5f3fc; text-decoration: none; }
 
+    /* Navigation */
+    nav {
+      background:#0f172a;
+      padding:1rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav .nav-inner {
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+    }
+
+    nav a {
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    nav a:first-child {
+      font-weight:600;
+    }
+
     header {
       padding: 3rem 1.5rem 2rem;
       text-align: center;
@@ -40,15 +65,6 @@
       margin-bottom: 1.2rem;
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(94,234,212,0.6);
-      font-size: 0.9rem;
-    }
-
     .card {
       background: radial-gradient(circle at top left, #0f172a, #020617);
       border: 1px solid rgba(148,163,184,0.25);
@@ -66,11 +82,22 @@
       margin-bottom: 0.5rem;
       opacity: 0.9;
     }
-
   </style>
-
 </head>
+
 <body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über</a>
+      <a href="services.html">Leistungen</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </nav>
 
   <header>
     <h1>Kontakt</h1>
@@ -78,19 +105,16 @@
 
   <main>
 
-    <a href="index.html" class="back">← Zurück zur Startseite</a>
-
     <p>
-      Wenn du Fragen hast oder eine Zusammenarbeit mit Draftnex Solutions in Erwägung ziehst,
-      kannst du jederzeit eine Nachricht senden. Eine Antwort erfolgt so schnell wie möglich.
+      Wenn du eine Frage hast oder eine mögliche Zusammenarbeit besprechen möchtest,
+      kannst du Draftnex Solutions jederzeit kontaktieren.
     </p>
 
     <div class="card">
-
       <h2>Kontaktinformationen</h2>
 
       <p class="info-line">
-        📧 <strong>E-Mail:</strong> <a href="mailto:info@draftnex-solutions.de">info@draftnex-solutions.de</a>
+        📧 <strong>E-Mail:</strong> draftnex.solutions@gmail.com
       </p>
 
       <p class="info-line">
@@ -102,9 +126,8 @@
       </p>
 
       <p style="opacity: 0.75; margin-top: 1rem; font-size: 0.85rem;">
-        (Die E-Mail-Adresse wird aktualisiert, sobald die endgültige Domain eingerichtet wurde.)
+        (E-Mail-Adresse wird angepasst, sobald die endgültige Domain eingerichtet wurde.)
       </p>
-
     </div>
 
   </main>
