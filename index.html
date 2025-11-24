@@ -7,9 +7,6 @@
   <meta name="description" content="Draftnex Solutions – Struktur, Texte und digitale Konzepte für Selbstständige und kleine Unternehmen.">
 
   <style>
-    /* ==============================
-       BASIC RESET & STYLE
-       ============================== */
     * {
       margin: 0;
       padding: 0;
@@ -29,9 +26,32 @@
       text-decoration: none;
     }
 
-    /* ==============================
-       HEADER / HERO
-       ============================== */
+    /* Navigation */
+    nav {
+      background:#0f172a;
+      padding:1rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav .nav-inner {
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+    }
+
+    nav a {
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    nav a:first-child {
+      font-weight:600;
+    }
+
+    /* Header / Hero */
     header {
       padding: 4rem 1.5rem 3rem;
       text-align: center;
@@ -72,9 +92,6 @@
       font-size: 1rem;
     }
 
-    /* ==============================
-       CONTENT SECTIONS
-       ============================== */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -87,7 +104,6 @@
       color: #f1f5f9;
     }
 
-    /* Grid layout */
     .grid {
       display: grid;
       gap: 2rem;
@@ -99,7 +115,6 @@
       }
     }
 
-    /* Cards */
     .card {
       background: radial-gradient(circle at top left, #0f172a, #020617);
       border: 1px solid rgba(148,163,184,0.25);
@@ -122,9 +137,6 @@
       opacity: 0.9;
     }
 
-    /* ==============================
-       FOOTER
-       ============================== */
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -137,9 +149,19 @@
 
 <body>
 
-  <!-- ==============================
-       HERO SECTION
-       ============================== -->
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über</a>
+      <a href="services.html">Leistungen</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <header>
     <div class="logo">Draftnex Solutions</div>
     <h1 class="hero-title">Klare Struktur. Starke Texte. Digitale Lösungen.</h1>
@@ -151,10 +173,7 @@
     <a class="cta-main" href="#services">Mehr über die Leistungen</a>
   </header>
 
-
-  <!-- ==============================
-       SERVICES
-       ============================== -->
+  <!-- Leistungen -->
   <main>
 
     <h2 id="services" class="section-title">Leistungen</h2>
@@ -213,9 +232,6 @@
 
   </main>
 
-  <!-- ==============================
-       FOOTER
-       ============================== -->
   <footer>
     © <span id="year"></span> Draftnex Solutions
   </footer>
