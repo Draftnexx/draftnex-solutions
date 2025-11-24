@@ -17,6 +17,31 @@
 
     a { color: #a5f3fc; text-decoration: none; }
 
+    /* Navigation */
+    nav {
+      background:#0f172a;
+      padding:1rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav .nav-inner {
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+    }
+
+    nav a {
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    nav a:first-child {
+      font-weight:600;
+    }
+
     header {
       padding: 3rem 1.5rem 2rem;
       text-align: center;
@@ -58,15 +83,6 @@
       opacity: 0.9;
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(94,234,212,0.6);
-      font-size: 0.9rem;
-    }
-
     .card {
       background: radial-gradient(circle at top left, #0f172a, #020617);
       border: 1px solid rgba(148,163,184,0.25);
@@ -80,11 +96,22 @@
       margin-bottom: 0.6rem;
       color: #f8fafc;
     }
-
   </style>
-
 </head>
+
 <body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über</a>
+      <a href="services.html">Leistungen</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </nav>
 
   <header>
     <h1>Leistungen</h1>
@@ -92,84 +119,64 @@
 
   <main>
 
-    <a href="index.html" class="back">← Zurück zur Startseite</a>
-
     <p>
-      Draftnex Solutions bietet eine klare Auswahl an professionellen Leistungen, 
-      die darauf ausgerichtet sind, Inhalte, Marken und digitale Auftritte logisch, 
-      verständlich und strukturiert aufzubauen.
+      Draftnex Solutions bietet klare, strukturierte Leistungen rund um Texte,
+      Konzepte und digitale Organisation.
     </p>
 
-    <!-- ===================== -->
-    <!-- WEBSTRUKTUR & KONZEPT -->
-    <!-- ===================== -->
     <div class="card">
       <h3>Webstruktur & digitale Konzepte</h3>
       <p>
-        Planung, Strukturierung und Konzeption moderner, klarer Webseiten.
-        Ideal für Einzelunternehmer:innen und kleine Projekte, die eine
-        professionelle Grundlage benötigen.
+        Strukturierte, logisch aufgebaute Websites für Einzelunternehmer:innen und kleine Unternehmen.
       </p>
 
       <ul>
-        <li>Analyse der bestehenden Inhalte</li>
-        <li>Struktur für Landingpages & Hauptseiten</li>
-        <li>Logische Navigation & Nutzerführung</li>
-        <li>Modernes, ruhiges visuelles Grundkonzept</li>
+        <li>Analyse bestehender Inhalte</li>
+        <li>Struktur für Landingpages</li>
+        <li>Navigation & Nutzerführung</li>
+        <li>Modernes, ruhiges Grunddesign</li>
       </ul>
     </div>
 
-    <!-- ===================== -->
-    <!-- TEXTE -->
-    <!-- ===================== -->
     <div class="card">
       <h3>Professionelle Texte</h3>
       <p>
-        Klare, präzise und verständliche Inhalte für Menschen,
-        die ihr Angebot professionell darstellen wollen.
+        Präzise, verständliche und klare Texte für digitale Auftritte.
       </p>
 
       <ul>
-        <li>Texte für Webseiten & Landingpages</li>
-        <li>Markenstory & Über-mich-Seiten</li>
-        <li>Produkt- und Leistungsbeschreibungen</li>
-        <li>Strukturierter Aufbau komplexer Inhalte</li>
+        <li>Website-Texte</li>
+        <li>Über-mich & Storytelling</li>
+        <li>Leistungs- & Produktbeschreibungen</li>
+        <li>Korrektur & Strukturierung</li>
       </ul>
     </div>
 
-    <!-- ===================== -->
-    <!-- SELBSTSTÄNDIGKEIT -->
-    <!-- ===================== -->
     <div class="card">
-      <h3>Unterstützung beim Aufbau der Selbstständigkeit</h3>
+      <h3>Unterstützung bei Selbstständigkeit</h3>
       <p>
-        Hilfe bei Struktur, Planung und Organisation – damit Projekte nicht chaotisch, 
-        sondern klar und realistisch aufgebaut werden.
+        Hilfe bei Struktur, Planung und Organisation eines eigenen Projekts.
       </p>
 
       <ul>
-        <li>Arbeitsstruktur und Planung</li>
-        <li>Klärung von Angebot & Positionierung</li>
+        <li>Arbeitsstruktur & Planung</li>
+        <li>Positionierung & Angebot</li>
         <li>Prozessoptimierung</li>
-        <li>Digitale Tools & moderne Arbeitsmethoden</li>
+        <li>Digitale Tools</li>
       </ul>
     </div>
 
-    <!-- ===================== -->
-    <!-- KI-OPTIMIERUNG -->
-    <!-- ===================== -->
     <div class="card">
       <h3>KI-gestützte Optimierung</h3>
       <p>
-        Effiziente Unterstützung durch moderne KI-Methoden – 
-        zur Verbesserung von Texten, Strukturen und Abläufen.
+        Moderne KI-Methoden für klare, effiziente Abläufe und Inhalte.
       </p>
 
       <ul>
-        <li>Analyse von Texten & Inhalten</li>
-        <li>Verbesserung von Klarheit & Lesbarkeit</li>
-        <li>Automatisierung einfacher Prozesse</li>
-        <li>Qualitätssicherung & Konsistenz</li>
+        <li>Textoptimierung</li>
+        <li>Automatisierung</li>
+        <li>Qualitätssicherung</li>
+        <li>Struktur & Effizienz</li>
       </ul>
     </div>
 
@@ -177,4 +184,3 @@
 
 </body>
 </html>
-
