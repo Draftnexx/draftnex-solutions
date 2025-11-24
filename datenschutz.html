@@ -17,6 +17,31 @@
 
     a { color: #a5f3fc; text-decoration: none; }
 
+    /* Navigation */
+    nav {
+      background:#0f172a;
+      padding:1rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav .nav-inner {
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:1.5rem;
+      flex-wrap:wrap;
+    }
+
+    nav a {
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    nav a:first-child {
+      font-weight:600;
+    }
+
     header {
       padding: 3rem 1.5rem 2rem;
       text-align: center;
@@ -56,18 +81,22 @@
       margin-bottom: 0.4rem;
       opacity: 0.9;
     }
-
-    .back {
-      display: inline-block;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(94,234,212,0.6);
-      font-size: 0.9rem;
-    }
   </style>
 </head>
+
 <body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über</a>
+      <a href="services.html">Leistungen</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </nav>
 
   <header>
     <h1>Datenschutzerklärung</h1>
@@ -75,71 +104,61 @@
 
   <main>
 
-    <a href="index.html" class="back">← Zurück zur Startseite</a>
-
     <p>
       Der Schutz deiner persönlichen Daten ist Draftnex Solutions sehr wichtig.
-      Diese Datenschutzerklärung erläutert, welche Daten auf dieser Website erhoben und
-      wie sie verwendet werden.
+      Diese Datenschutzerklärung erklärt, welche Daten auf dieser Website erfasst werden
+      und wie sie verwendet werden.
     </p>
 
     <h2>1. Verantwortlicher</h2>
     <p>
-      Verantwortlich für die Datenverarbeitung auf dieser Website ist:
-      <br><br>
+      Verantwortlich für die Datenverarbeitung:<br>
       <em>Draftnex Solutions</em><br>
-      (Name und Adresse werden später ergänzt)<br>
-      E-Mail: (wird ergänzt)
+      (Name & Adresse werden später ergänzt)
     </p>
 
     <h2>2. Erfassung allgemeiner Daten</h2>
     <p>
-      Diese Website wird über GitHub Pages betrieben. Beim Aufrufen der Seite
-      können technische Daten wie IP-Adresse, Browsertyp, Betriebssystem oder Uhrzeit
-      des Seitenaufrufs durch den Hosting-Anbieter erfasst werden.
-      Diese Daten werden automatisch protokolliert und dienen der technischen
-      Bereitstellung der Website.
+      Diese Website wird über GitHub Pages betrieben. Beim Aufrufen der Seite können
+      technische Daten wie IP-Adresse, Browsertyp, Betriebssystem oder Zeitpunkt des
+      Seitenaufrufs durch GitHub erfasst werden.
     </p>
 
     <h2>3. Kontaktaufnahme</h2>
     <p>
-      Wenn du Draftnex Solutions per E-Mail kontaktierst, werden die dort
-      übermittelten Daten ausschließlich zur Bearbeitung der Anfrage verwendet.
-      Eine Weitergabe findet nicht statt.
+      Wenn du Draftnex Solutions per E-Mail kontaktierst, werden die dort übermittelten
+      Daten ausschließlich zur Bearbeitung deiner Anfrage genutzt.
     </p>
 
     <h2>4. Cookies</h2>
     <p>
-      Diese Website verwendet selbst keine Cookies.
-      GitHub Pages kann jedoch serverseitige Cookies einsetzen, die technisch notwendig sind.
+      Diese Website verwendet keine eigenen Cookies. GitHub Pages kann technisch notwendige
+      serverseitige Cookies einsetzen.
     </p>
 
-    <h2>5. GitHub Pages (Hosting)</h2>
+    <h2>5. Hosting bei GitHub Pages</h2>
     <p>
-      Die Website wird von GitHub Inc. bereitgestellt (GitHub Pages).
-      Dabei gelten die Datenschutzrichtlinien von GitHub:
-      <br>
+      Diese Website wird von GitHub Inc. bereitgestellt.  
+      Datenschutzerklärung von GitHub:<br>
       <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">
-        GitHub Datenschutzbestimmungen
+        GitHub Privacy Statement
       </a>
     </p>
 
-    <h2>6. Rechte der betroffenen Personen</h2>
-    <p>Du hast folgende Rechte:</p>
-
+    <h2>6. Rechte der Nutzer</h2>
     <ul>
       <li>Auskunft über gespeicherte Daten</li>
       <li>Berichtigung unrichtiger Daten</li>
       <li>Löschung von Daten</li>
       <li>Einschränkung der Verarbeitung</li>
-      <li>Widerspruch gegen Verarbeitung</li>
+      <li>Widerspruch gegen Datenverarbeitung</li>
       <li>Datenübertragbarkeit</li>
     </ul>
 
-    <h2>7. Änderung dieser Datenschutzerklärung</h2>
+    <h2>7. Änderungen</h2>
     <p>
-      Draftnex Solutions kann diese Datenschutzerklärung jederzeit anpassen,
-      um sie an aktuelle rechtliche Anforderungen oder Änderungen im Service anzupassen.
+      Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden, um rechtliche
+      Anforderungen oder Änderungen der Website abzubilden.
     </p>
 
   </main>
