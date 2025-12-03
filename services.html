@@ -1,186 +1,416 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leistungen – Draftnex Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Alle Leistungen von Draftnex Solutions – Struktur, Texte und digitale Lösungen.">
+
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    :root {
+      --bg: #050712;
+      --bg-alt: #070a18;
+      --fg: #f5f7ff;
+      --muted: #9da3c6;
+      --accent: #29e0ff;
+      --accent-2: #c357ff;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.65);
+      --shadow-neon: 0 0 30px rgba(41,224,255,0.4);
+      --transition: 240ms ease-out;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      background: #020617;
-      color: #e5e7eb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      padding-bottom: 3rem;
+      background: radial-gradient(circle at top, #0c1024 0%, #050712 70%);
+      color: var(--fg);
+      font-family: "Space Grotesk", sans-serif;
+      overflow-x: hidden;
     }
 
-    a { color: #a5f3fc; text-decoration: none; }
-
-    /* Navigation */
-    nav {
-      background:#0f172a;
-      padding:1rem;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40vh -40vw;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(41,224,255,0.20), transparent 55%),
+        radial-gradient(circle at 85% 10%, rgba(195,87,255,0.20), transparent 55%),
+        radial-gradient(circle at 20% 90%, rgba(49,255,171,0.17), transparent 55%);
+      filter: blur(10px);
+      opacity: .7;
+      z-index: -1;
+      animation: float 18s infinite ease-in-out alternate;
     }
 
-    nav .nav-inner {
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      gap:1.5rem;
-      flex-wrap:wrap;
-    }
-
-    nav a {
-      color:#e5e7eb;
-      text-decoration:none;
-      font-size:0.95rem;
-    }
-
-    nav a:first-child {
-      font-weight:600;
+    @keyframes float {
+      0% { transform: translate3d(-30px,-20px,0); }
+      100% { transform: translate3d(30px,30px,0); }
     }
 
     header {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: .8rem 0;
+      backdrop-filter: blur(18px);
+      background: rgba(3,5,18,.85);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-      color: #f8fafc;
-    }
-
-    main {
-      max-width: 1000px;
+    .wrapper {
+      width: min(1100px, 90%);
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
     }
 
-    h2 {
-      font-size: 1.7rem;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--accent);
+      background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
+      box-shadow: var(--shadow-neon);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .8rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .9rem;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--fg);
+    }
+
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .btn-primary {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      box-shadow: 0 0 0 rgba(41,224,255,0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(41,224,255,0.6);
+    }
+
+    h1 {
       margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #f1f5f9;
-    }
-
-    p {
-      opacity: 0.9;
-      margin-bottom: 1.1rem;
-      max-width: 850px;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      margin-bottom: 1.3rem;
-    }
-
-    li {
-      margin-bottom: 0.4rem;
-      opacity: 0.9;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #0f172a, #020617);
-      border: 1px solid rgba(148,163,184,0.25);
-      border-radius: 1rem;
-      padding: 1.8rem;
+      font-size: 2.2rem;
+      letter-spacing: .05em;
+      background: linear-gradient(120deg, #fff, #b7f7ff, #dcb4ff);
+      -webkit-background-clip: text;
+      color: transparent;
       margin-bottom: 2rem;
     }
 
-    h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
-      color: #f8fafc;
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      padding: 1.3rem;
+      border-radius: var(--radius-lg);
+      background: rgba(7,10,26,.88);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 0 28px rgba(41,224,255,0.4);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: .4rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.55;
+      margin-bottom: .7rem;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 0 0, rgba(41,224,255,.4), rgba(10,16,40,.9));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: .6rem;
+      color: #e7fbff;
+      font-size: 1.1rem;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: .4rem;
+      flex-wrap: wrap;
+      margin-top: .4rem;
+    }
+
+    .tag {
+      font-size: .75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: .15rem .55rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .85rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über</a>
-      <a href="services.html">Leistungen</a>
-      <a href="contact.html">Kontakt</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-  </nav>
-
+  <!-- NAVIGATION -->
   <header>
-    <h1>Leistungen</h1>
+    <div class="wrapper nav">
+      <div class="brand">
+        <div class="brand-mark">DX</div>
+        <span>Draftnex Solutions</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="services.html" style="color: var(--fg);">Leistungen</a></li>
+          <li><a href="about.html">Über mich</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="wrapper">
+    <h1>Leistungen & Services</h1>
 
-    <p>
-      Draftnex Solutions bietet klare, strukturierte Leistungen rund um Texte,
-      Konzepte und digitale Organisation.
-    </p>
+    <!-- APP DEVELOPMENT -->
+    <section class="section">
+      <h2>App-Entwicklung (Mobile · Desktop · Web)</h2>
+      <p>Der Kern von Draftnex – deine individuelle App, perfekt auf deinen Alltag abgestimmt.</p>
 
-    <div class="card">
-      <h3>Webstruktur & digitale Konzepte</h3>
-      <p>
-        Strukturierte, logisch aufgebaute Websites für Einzelunternehmer:innen und kleine Unternehmen.
-      </p>
+      <div class="service-grid">
 
-      <ul>
-        <li>Analyse bestehender Inhalte</li>
-        <li>Struktur für Landingpages</li>
-        <li>Navigation & Nutzerführung</li>
-        <li>Modernes, ruhiges Grunddesign</li>
-      </ul>
-    </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Individuelle Mobile Apps</h3>
+          <p>
+            Android-Apps für Selbstständige, kleine Unternehmen und Privatkunden.
+            Keine Vorlagen – echte Individualentwicklung.
+          </p>
+          <div class="tag-row">
+            <div class="tag">Android</div>
+            <div class="tag">Flutter</div>
+            <div class="tag">Tools & Systeme</div>
+          </div>
+        </div>
 
-    <div class="card">
-      <h3>Professionelle Texte</h3>
-      <p>
-        Präzise, verständliche und klare Texte für digitale Auftritte.
-      </p>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-desktop"></i></div>
+          <h3>Desktop-Apps</h3>
+          <p>
+            Electron- oder Python-basierte Apps für Windows.
+            Ideal für Verwaltung, Daten, Automationen und Backoffice.
+          </p>
+          <div class="tag-row">
+            <div class="tag">Windows</div>
+            <div class="tag">Electron</div>
+            <div class="tag">Produktivität</div>
+          </div>
+        </div>
 
-      <ul>
-        <li>Website-Texte</li>
-        <li>Über-mich & Storytelling</li>
-        <li>Leistungs- & Produktbeschreibungen</li>
-        <li>Korrektur & Strukturierung</li>
-      </ul>
-    </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Web-Apps</h3>
+          <p>Leichte, moderne Web-Applikationen – schnell, effizient, überall erreichbar.</p>
+          <div class="tag-row">
+            <div class="tag">Web</div>
+            <div class="tag">JavaScript</div>
+            <div class="tag">APIs</div>
+          </div>
+        </div>
 
-    <div class="card">
-      <h3>Unterstützung bei Selbstständigkeit</h3>
-      <p>
-        Hilfe bei Struktur, Planung und Organisation eines eigenen Projekts.
-      </p>
+      </div>
+    </section>
 
-      <ul>
-        <li>Arbeitsstruktur & Planung</li>
-        <li>Positionierung & Angebot</li>
-        <li>Prozessoptimierung</li>
-        <li>Digitale Tools</li>
-      </ul>
-    </div>
+    <!-- DIGITAL SYSTEMS -->
+    <section class="section">
+      <h2>Digitale Systeme & Automationen</h2>
+      <p>Ordnung, Struktur, Effizienz – gebaut für deinen Alltag.</p>
 
-    <div class="card">
-      <h3>KI-gestützte Optimierung</h3>
-      <p>
-        Moderne KI-Methoden für klare, effiziente Abläufe und Inhalte.
-      </p>
+      <div class="service-grid">
 
-      <ul>
-        <li>Textoptimierung</li>
-        <li>Automatisierung</li>
-        <li>Qualitätssicherung</li>
-        <li>Struktur & Effizienz</li>
-      </ul>
-    </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Digitale Arbeitsumgebungen</h3>
+          <p>Notion-Setups, Cloud-Systeme, Datenstrukturen – alles klar, logisch und nutzbar.</p>
+          <div class="tag-row">
+            <div class="tag">Notion</div>
+            <div class="tag">Google Cloud</div>
+            <div class="tag">Ordnung</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Automationen & KI-Workflows</h3>
+          <p>Automatische Abläufe für wiederkehrende Aufgaben, inkl. KI-Unterstützung.</p>
+          <div class="tag-row">
+            <div class="tag">KI</div>
+            <div class="tag">Automation</div>
+            <div class="tag">Python</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Cloud & Ordnung</h3>
+          <p>Klare Struktur in Dateien, Backups, Passwörtern und Dokumenten.</p>
+          <div class="tag-row">
+            <div class="tag">Datensicherheit</div>
+            <div class="tag">Cloud</div>
+            <div class="tag">Backups</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="section">
+      <h2>IT-Support & Problemlösung</h2>
+      <p>Schnelle Hilfe ohne Fachchinesisch. Direkt, verständlich, effektiv.</p>
+
+      <div class="service-grid">
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3>Fehleranalyse & Optimierung</h3>
+          <p>Windows, macOS, Software, Netzwerk – ich löse Probleme effizient.</p>
+          <div class="tag-row">
+            <div class="tag">Windows</div>
+            <div class="tag">macOS</div>
+            <div class="tag">Analyse</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Datensicherheit</h3>
+          <p>Backups, Passwortsysteme, Cloud-Sicherheit – klar, verständlich erklärt.</p>
+          <div class="tag-row">
+            <div class="tag">Sicherheit</div>
+            <div class="tag">Backup</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-code-merge"></i></div>
+          <h3>Technische Einrichtung</h3>
+          <p>Neue Geräte, Cloud, E-Mail, Systeme – korrekt, sauber und betriebsbereit.</p>
+          <div class="tag-row">
+            <div class="tag">Setup</div>
+            <div class="tag">E-Mail</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="margin-top: 3rem;">
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <h2 style="margin-bottom: .5rem;">Bereit für dein Projekt?</h2>
+        <p style="color: var(--muted); max-width: 430px; margin: 0 auto 1.2rem;">
+          Erzähl mir kurz, was du planst – ich melde mich mit einer ehrlichen Einschätzung.
+        </p>
+        <a href="contact.html" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Projekt anfragen
+        </a>
+      </div>
+    </section>
 
   </main>
+
+  <footer>
+    <div class="wrapper">
+      © <span id="year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
+      <br />
+      <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a> ·
+      <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
