@@ -25,25 +25,25 @@
       --glow: 0 0 30px rgba(41,224,255,0.5);
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: radial-gradient(circle at top, #0f1227 0%, #050712 70%);
       color: var(--fg);
       font-family: "Space Grotesk", sans-serif;
-      line-height: 1.7;
       overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    /* animated background */
+    /* Animated Background */
     body::before {
-      content:"";
+      content: "";
       position: fixed;
       inset: -40vh -40vw;
       background:
         radial-gradient(circle at 15% 15%, rgba(41,224,255,0.20), transparent 55%),
         radial-gradient(circle at 75% 20%, rgba(195,87,255,0.20), transparent 55%),
-        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.15), transparent 55%);
+        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.16), transparent 55%);
       filter: blur(10px);
       z-index: -1;
       opacity: .65;
@@ -55,6 +55,7 @@
       100% { transform: translate3d(20px, 30px, 0); }
     }
 
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -86,8 +87,8 @@
     }
 
     .brand-mark {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border: 1px solid var(--accent);
       border-radius: 12px;
       background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
@@ -102,7 +103,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.3rem;
+      gap: 1.4rem;
     }
 
     nav a {
@@ -128,32 +129,30 @@
       background: linear-gradient(120deg, #fff, #b7f7ff, #e6c0ff);
       -webkit-background-clip: text;
       color: transparent;
-      letter-spacing: .04em;
       margin-bottom: .8rem;
     }
 
     .hero p {
+      max-width: 560px;
+      margin: 0 auto;
       color: var(--muted);
       font-size: 1rem;
-      max-width: 580px;
-      margin: 0 auto;
     }
 
-    /* CONTENT SECTIONS */
+    /* SECTION BASE */
     .section {
-      margin: 2.5rem 0;
+      margin: 3rem 0;
     }
 
-    .grid {
+    /* GRID */
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem;
       align-items: start;
     }
 
+    /* PROFILE BOX */
     .profile {
       background: rgba(7,10,26,.88);
       border-radius: var(--radius-xl);
@@ -177,17 +176,18 @@
       display: flex;
       gap: .4rem;
       flex-wrap: wrap;
-      margin-top: .4rem;
+      margin-top: .6rem;
     }
 
     .tag {
       font-size: .75rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
-      padding: .15rem .55rem;
+      padding: .175rem .6rem;
       color: var(--muted);
     }
 
+    /* PHOTO BOX */
     .photo {
       width: 100%;
       height: 280px;
@@ -195,7 +195,7 @@
       margin: 0 auto;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(255,255,255,0.12);
-      background: radial-gradient(circle at top left, rgba(41,224,255,0.3), rgba(7,10,26,0.95));
+      background: radial-gradient(circle at top left, rgba(41,224,255,0.3), rgba(7,10,26,0.96));
       box-shadow: var(--shadow);
       display: flex;
       align-items: center;
@@ -207,7 +207,7 @@
       padding: .5rem;
     }
 
-    /* VALUES SECTION */
+    /* SECTION HEADERS */
     h2 {
       font-size: 1.35rem;
       text-transform: uppercase;
@@ -215,6 +215,7 @@
       margin-bottom: .6rem;
     }
 
+    /* VALUE GRID */
     .value-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -233,13 +234,13 @@
 
     .value:hover {
       transform: translateY(-6px);
-      border-color: var(--accent);
       box-shadow: var(--glow);
+      border-color: var(--accent);
     }
 
     .value h3 {
-      margin-bottom: .4rem;
       font-size: 1.15rem;
+      margin-bottom: .35rem;
     }
 
     .value p {
@@ -249,53 +250,52 @@
 
     /* CTA */
     .cta {
-      margin-top: 2rem;
       text-align: center;
+      margin-top: 2rem;
     }
 
     .btn {
-      padding: .6rem 1.3rem;
+      padding: .6rem 1.4rem;
       border-radius: 999px;
       border: 1px solid var(--accent);
       background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
-      color: var(--fg);
       text-decoration: none;
+      color: var(--fg);
       font-size: .9rem;
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      box-shadow: 0 0 0 rgba(41,224,255,0.4);
-      transition: 250ms ease-out;
+      transition: 260ms ease-out;
     }
 
     .btn:hover {
       box-shadow: 0 0 22px rgba(41,224,255,0.6);
     }
 
-    /* MOBILE FIXES */
+    /* MOBILE */
     @media (max-width: 840px) {
-      .grid {
+      .about-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
-
       .profile {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.8rem;
       }
-
       .photo {
         margin: 0 auto;
       }
     }
 
+    /* FOOTER */
     footer {
       margin-top: 3rem;
       padding: 1.4rem 0 2.3rem;
-      color: var(--muted);
-      font-size: .85rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: .85rem;
     }
+
   </style>
 </head>
 
@@ -329,17 +329,17 @@
     </p>
   </section>
 
-  <!-- MAIN GRID -->
-  <section class="section">
-    <div class="grid wrapper">
+  <!-- ABOUT GRID -->
+  <section class="section wrapper">
+    <div class="about-grid">
 
       <div class="profile">
         <h3>Wer ich bin</h3>
         <p>
           Ich arbeite seit vielen Jahren am Computer, entwickle Apps, baue digitale Systeme 
-          und helfe Menschen dabei, ihre Technik endlich sinnvoll zu nutzen.  
-          Draftnex Solutions ist aus dem Gedanken entstanden, dass Software nicht kompliziert 
-          sein muss – sie muss einfach funktionieren und zu deinem Alltag passen.
+          und helfe Menschen dabei, ihre Technik sinnvoll zu nutzen.  
+          Draftnex Solutions entstand aus dem Gedanken, dass Software nicht kompliziert sein muss – 
+          sie muss einfach funktionieren und zu deinem Alltag passen.
         </p>
 
         <p>
@@ -366,26 +366,26 @@
   <!-- MISSION -->
   <section class="section wrapper">
     <h2>Meine Mission</h2>
-    <p style="color: var(--muted); max-width: 700px; margin-bottom: 1rem;">
+    <p style="color: var(--muted); max-width: 700px;">
       Technik soll dir dienen – nicht andersherum.  
-      Mein Ziel ist es, dir Werkzeuge zu bauen, die dich entlasten, deinen Alltag ordnen
+      Mein Ziel ist es, Werkzeuge zu bauen, die dich entlasten, deinen Alltag ordnen
       und dich schneller ans Ziel bringen.
     </p>
 
     <div class="value-grid">
       <div class="value">
         <h3>Klarheit vor Chaos</h3>
-        <p>Ich baue Systeme, die dir Orientierung geben, statt dich zu überfordern.</p>
+        <p>Ich baue Systeme, die nicht überfordern, sondern Orientierung geben.</p>
       </div>
 
       <div class="value">
         <h3>Apps ohne Overkill</h3>
-        <p>Keine überladenen Tools – nur das, was du brauchst.</p>
+        <p>Keine unnötigen Features – nur das, was du wirklich brauchst.</p>
       </div>
 
       <div class="value">
         <h3>Effizienz & Fokus</h3>
-        <p>Jedes Feature ist gezielt gewählt: mehr Klarheit, weniger Stress.</p>
+        <p>Jedes Element einer App hat einen Zweck: Klarheit, Struktur, Produktivität.</p>
       </div>
     </div>
   </section>
@@ -398,17 +398,17 @@
 
       <div class="value">
         <h3>Ehrlich & direkt</h3>
-        <p>Keine Floskeln – klare Einschätzungen und offene Kommunikation.</p>
+        <p>Ich sage dir genau, was möglich ist und was nicht – ohne Fachblabla.</p>
       </div>
 
       <div class="value">
         <h3>Gemeinsam statt anonym</h3>
-        <p>Ich arbeite mit dir, nicht hinter einem Ticketsystem versteckt.</p>
+        <p>Du sprichst mit mir persönlich, ohne Ticketsystem oder Support-Bot.</p>
       </div>
 
       <div class="value">
         <h3>Technik, die zu dir passt</h3>
-        <p>Alles ist auf deine Bedürfnisse abgestimmt, nicht auf Tools.</p>
+        <p>Alles wird so entwickelt, dass es sich für dich selbstverständlich anfühlt.</p>
       </div>
 
     </div>
