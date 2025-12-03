@@ -1,167 +1,312 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Datenschutzerklärung – Draftnex Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Datenschutzerklärung von Draftnex Solutions.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    :root {
+      --bg: #050712;
+      --fg: #f5f7ff;
+      --muted: #9da3c6;
+      --accent: #29e0ff;
+      --accent-2: #c357ff;
+      --border: rgba(255,255,255,0.1);
+      --radius-xl: 22px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.65);
+      --glow: 0 0 30px rgba(41,224,255,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      background: #020617;
-      color: #e5e7eb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      padding-bottom: 3rem;
+      background: radial-gradient(circle at top, #101326 0%, #050712 70%);
+      color: var(--fg);
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    a { color: #a5f3fc; text-decoration: none; }
-
-    /* Navigation */
-    nav {
-      background:#0f172a;
-      padding:1rem;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    body::before {
+      content:"";
+      position: fixed;
+      inset: -40vh -40vw;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(41,224,255,0.22), transparent 55%),
+        radial-gradient(circle at 80% 25%, rgba(195,87,255,0.20), transparent 55%),
+        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.15), transparent 55%);
+      filter: blur(10px);
+      z-index: -1;
+      opacity: .7;
+      animation: floatBg 18s infinite ease-in-out alternate;
     }
 
-    nav .nav-inner {
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      gap:1.5rem;
-      flex-wrap:wrap;
-    }
-
-    nav a {
-      color:#e5e7eb;
-      text-decoration:none;
-      font-size:0.95rem;
-    }
-
-    nav a:first-child {
-      font-weight:600;
+    @keyframes floatBg {
+      0% { transform: translate3d(-20px, -20px, 0); }
+      100% { transform: translate3d(20px, 30px, 0); }
     }
 
     header {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      padding: .8rem 0;
+      backdrop-filter: blur(18px);
+      background: rgba(3,5,18,.8);
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 20;
+    }
+
+    .wrapper {
+      width: min(900px, 90%);
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
+      box-shadow: var(--glow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .8rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    nav a:hover {
+      color: var(--fg);
     }
 
     h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-      color: #f8fafc;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: .6rem;
+      background: linear-gradient(120deg, #fff, #b7f7ff, #e6c0ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: .04em;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+    .section-box {
+      margin-top: 2.2rem;
+      background: rgba(7,10,26,.82);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      margin-bottom: 0.8rem;
-      color: #f1f5f9;
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
     }
 
-    p {
-      opacity: 0.9;
-      margin-bottom: 1rem;
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      margin-bottom: .4rem;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: .5rem;
     }
 
     ul {
-      padding-left: 1.2rem;
-      margin-bottom: 1.2rem;
+      margin-left: 1.2rem;
     }
 
-    li {
-      margin-bottom: 0.4rem;
-      opacity: 0.9;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--fg);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.4rem 0 2.3rem;
+      color: var(--muted);
+      font-size: .85rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über</a>
-      <a href="services.html">Leistungen</a>
-      <a href="contact.html">Kontakt</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-  </nav>
-
   <header>
-    <h1>Datenschutzerklärung</h1>
+    <div class="wrapper nav">
+      <div class="brand">
+        <div class="brand-mark">DX</div>
+        <span>Draftnex Solutions</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="services.html">Leistungen</a></li>
+          <li><a href="about.html">Über mich</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="wrapper">
 
-    <p>
-      Der Schutz deiner persönlichen Daten ist Draftnex Solutions sehr wichtig.
-      Diese Datenschutzerklärung erklärt, welche Daten auf dieser Website erfasst werden
-      und wie sie verwendet werden.
-    </p>
+    <h1>Datenschutzerklärung</h1>
 
-    <h2>1. Verantwortlicher</h2>
-    <p>
-      Verantwortlich für die Datenverarbeitung:<br>
-      <em>Draftnex Solutions</em><br>
-      (Name & Adresse werden später ergänzt)
-    </p>
+    <div class="section-box">
 
-    <h2>2. Erfassung allgemeiner Daten</h2>
-    <p>
-      Diese Website wird über GitHub Pages betrieben. Beim Aufrufen der Seite können
-      technische Daten wie IP-Adresse, Browsertyp, Betriebssystem oder Zeitpunkt des
-      Seitenaufrufs durch GitHub erfasst werden.
-    </p>
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Draftnex Solutions<br>
+        Maxx (Nachname optional)<br>
+        Deutschland<br><br>
+        E-Mail: <a href="mailto:draftnexsolutions@outlook.de">draftnexsolutions@outlook.de</a>
+      </p>
 
-    <h2>3. Kontaktaufnahme</h2>
-    <p>
-      Wenn du Draftnex Solutions per E-Mail kontaktierst, werden die dort übermittelten
-      Daten ausschließlich zur Bearbeitung deiner Anfrage genutzt.
-    </p>
+      <h2>2. Allgemeines</h2>
+      <p>
+        Der Schutz deiner persönlichen Daten hat für mich einen hohen Stellenwert.
+        Ich erhebe und verarbeite personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Bestimmungen der DSGVO
+        und des TMG.
+      </p>
 
-    <h2>4. Cookies</h2>
-    <p>
-      Diese Website verwendet keine eigenen Cookies. GitHub Pages kann technisch notwendige
-      serverseitige Cookies einsetzen.
-    </p>
+      <h2>3. Datenverarbeitung auf dieser Website</h2>
 
-    <h2>5. Hosting bei GitHub Pages</h2>
-    <p>
-      Diese Website wird von GitHub Inc. bereitgestellt.  
-      Datenschutzerklärung von GitHub:<br>
-      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">
-        GitHub Privacy Statement
-      </a>
-    </p>
+      <h3>3.1 Besuch der Website</h3>
+      <p>
+        Meine Website wird über <strong>GitHub Pages</strong> gehostet.
+        Beim Aufruf werden automatisch Daten verarbeitet, die dein Browser übermittelt.
+      </p>
 
-    <h2>6. Rechte der Nutzer</h2>
-    <ul>
-      <li>Auskunft über gespeicherte Daten</li>
-      <li>Berichtigung unrichtiger Daten</li>
-      <li>Löschung von Daten</li>
-      <li>Einschränkung der Verarbeitung</li>
-      <li>Widerspruch gegen Datenverarbeitung</li>
-      <li>Datenübertragbarkeit</li>
-    </ul>
+      <ul>
+        <li>IP-Adresse (anonymisiert durch GitHub)</li>
+        <li>Datum & Uhrzeit des Zugriffs</li>
+        <li>Browsertyp und Version</li>
+        <li>Betriebssystem</li>
+        <li>Referrer URL</li>
+      </ul>
 
-    <h2>7. Änderungen</h2>
-    <p>
-      Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden, um rechtliche
-      Anforderungen oder Änderungen der Website abzubilden.
-    </p>
+      <p>
+        Diese Daten sind technisch erforderlich, um die Website bereitzustellen.
+        Eine Zusammenführung mit anderen Daten findet nicht statt.
+      </p>
+
+      <h3>3.2 Kontaktaufnahme per E-Mail / Formular</h3>
+      <p>
+        Wenn du mich über das Kontaktformular kontaktierst, wird keine serverseitige Speicherung vorgenommen.
+        Die Anfrage wird direkt über dein eigenes E-Mail-Programm per <strong>mailto:</strong> gesendet.
+      </p>
+
+      <p>Ich verarbeite:</p>
+
+      <ul>
+        <li>Name</li>
+        <li>E-Mail-Adresse</li>
+        <li>Inhalt deiner Nachricht</li>
+      </ul>
+
+      <p>
+        Diese Daten werden ausschließlich zur Bearbeitung deiner Anfrage genutzt.
+      </p>
+
+      <h3>3.3 Cookies / Tracking</h3>
+      <p>
+        Auf dieser Website werden <strong>keine Cookies</strong> gesetzt und
+        <strong>keine Tracking- oder Analyse-Tools</strong> eingesetzt.
+      </p>
+
+      <h2>4. Deine Rechte nach DSGVO</h2>
+      <ul>
+        <li><strong>Auskunft</strong> über gespeicherte personenbezogene Daten</li>
+        <li><strong>Löschung</strong> deiner Daten</li>
+        <li><strong>Berichtigung</strong> unrichtiger Daten</li>
+        <li><strong>Einschränkung der Verarbeitung</strong></li>
+        <li><strong>Datenübertragbarkeit</strong></li>
+        <li><strong>Widerspruchsrecht</strong></li>
+      </ul>
+
+      <p>
+        Zur Ausübung deiner Rechte reicht eine formlose E-Mail an:<br>
+        <a href="mailto:draftnexsolutions@outlook.de">draftnexsolutions@outlook.de</a>
+      </p>
+
+      <h2>5. Speicherdauer</h2>
+      <p>
+        Ich speichere personenbezogene Daten nur so lange, wie es für die Bearbeitung deiner Anfrage erforderlich ist.
+      </p>
+
+      <h2>6. Sicherheit</h2>
+      <p>
+        Ich nutze moderne technische und organisatorische Maßnahmen,
+        um deine Daten vor Verlust, Missbrauch oder unbefugtem Zugriff zu schützen.
+      </p>
+
+      <h2>7. Änderungen dieser Datenschutzerklärung</h2>
+      <p>
+        Ich behalte mir vor, diese Datenschutzerklärung zu aktualisieren, um sie an rechtliche Anforderungen anzupassen.
+      </p>
+
+    </div>
 
   </main>
+
+  <footer>
+    © <span id="year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
+    <br />
+    <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
