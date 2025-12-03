@@ -1,130 +1,259 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Impressum – Draftnex Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Impressum von Draftnex Solutions.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    :root {
+      --bg: #050712;
+      --fg: #f5f7ff;
+      --muted: #9da3c6;
+      --accent: #29e0ff;
+      --accent-2: #c357ff;
+      --border: rgba(255,255,255,0.1);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.65);
+      --glow: 0 0 30px rgba(41,224,255,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      background: #020617;
-      color: #e5e7eb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      padding-bottom: 3rem;
+      background: radial-gradient(circle at top, #0f1227 0%, #050712 70%);
+      color: var(--fg);
+      font-family: "Space Grotesk", sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    a { color: #a5f3fc; text-decoration: none; }
-
-    /* Navigation */
-    nav {
-      background:#0f172a;
-      padding:1rem;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    body::before {
+      content:"";
+      position: fixed;
+      inset: -40vh -40vw;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(41,224,255,0.20), transparent 55%),
+        radial-gradient(circle at 85% 10%, rgba(195,87,255,0.20), transparent 55%),
+        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.16), transparent 55%);
+      filter: blur(10px);
+      z-index: -1;
+      opacity: 0.65;
+      animation: floatBg 18s infinite ease-in-out alternate;
     }
 
-    nav .nav-inner {
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      gap:1.5rem;
-      flex-wrap:wrap;
-    }
-
-    nav a {
-      color:#e5e7eb;
-      text-decoration:none;
-      font-size:0.95rem;
-    }
-
-    nav a:first-child {
-      font-weight:600;
+    @keyframes floatBg {
+      0% { transform: translate3d(-20px, -20px, 0); }
+      100% { transform: translate3d(20px, 30px, 0); }
     }
 
     header {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      padding: .8rem 0;
+      backdrop-filter: blur(18px);
+      background: rgba(3,5,18,.8);
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 20;
+    }
+
+    .wrapper {
+      width: min(900px, 90%);
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
+      box-shadow: var(--glow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: .8rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    nav a:hover {
+      color: var(--fg);
     }
 
     h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-      color: #f8fafc;
+      font-size: 2.3rem;
+      background: linear-gradient(120deg, #fff, #b7f7ff, #e6c0ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-align: center;
+      margin-top: 3.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: .04em;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+    .section-box {
+      margin-top: 2rem;
+      background: rgba(7,10,26,.82);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      margin-bottom: 0.8rem;
-      color: #f1f5f9;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .5rem;
     }
 
-    p {
-      opacity: 0.9;
-      margin-bottom: 1rem;
+    p, a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255,255,255,0.2);
+    }
+
+    a:hover {
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.4rem 0 2.3rem;
+      color: var(--muted);
+      font-size: .85rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über</a>
-      <a href="services.html">Leistungen</a>
-      <a href="contact.html">Kontakt</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-  </nav>
-
+  <!-- NAVIGATION -->
   <header>
-    <h1>Impressum</h1>
+    <div class="wrapper nav">
+      <div class="brand">
+        <div class="brand-mark">DX</div>
+        <span>Draftnex Solutions</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="services.html">Leistungen</a></li>
+          <li><a href="about.html">Über mich</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="wrapper">
 
-    <h2>Angaben gemäß § 5 TMG</h2>
+    <h1>Impressum</h1>
 
-    <p>
-      <strong>Draftnex Solutions</strong><br>
-      Verantwortlich: <em>Maxx Macleod</em><br>
-      Adresse: <em>wird ergänzt (Geschäftsadresse)</em><br>
-      E-Mail: wird nachgereicht<br>
-      Telefon: wird nachgereicht<br>
-      Umsatzsteuer-ID: nicht vorhanden
-    </p>
+    <div class="section-box">
 
-    <h2>Haftung für Inhalte</h2>
-    <p>
-      Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
-      allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet,
-      übermittelte oder gespeicherte fremde Informationen zu überwachen.
-    </p>
+      <h2>Angaben gemäß § 5 TMG</h2>
 
-    <h2>Haftung für Links</h2>
-    <p>
-      Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe.
-      Deshalb kann ich für diese fremden Inhalte keine Gewähr übernehmen.
-    </p>
+      <p>
+        <strong>Draftnex Solutions</strong><br>
+        Maxx (Nachname optional)<br>
+        Deutschland<br>
+      </p>
 
-    <h2>Urheberrecht</h2>
-    <p>
-      Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
-      Beiträge Dritter sind als solche gekennzeichnet.
-    </p>
+      <p>
+        <strong>Kontakt:</strong><br>
+        E-Mail: <a href="mailto:draftnexsolutions@outlook.de">draftnexsolutions@outlook.de</a><br>
+      </p>
+
+      <p>
+        <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+        Maxx (Nachname optional)<br>
+        Deutschland
+      </p>
+
+      <br>
+
+      <h2>Haftungsausschluss (Disclaimer)</h2>
+
+      <p><strong>Haftung für Inhalte</strong><br>
+        Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+        Nach §§ 8 bis 10 TMG bin ich jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+        oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+      </p>
+
+      <p><strong>Haftung für Links</strong><br>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe.
+        Für diese fremden Inhalte übernehme ich keine Gewähr.
+      </p>
+
+      <p><strong>Urheberrecht</strong><br>
+        Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+        Beiträge Dritter sind als solche gekennzeichnet.
+      </p>
+
+      <br>
+
+      <h2>Streitschlichtung</h2>
+      <p>
+        Ich bin nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+    </div>
 
   </main>
+
+  <footer>
+    © <span id="year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
+    <br />
+    <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
