@@ -65,11 +65,21 @@
     }
 
     /* BRAND WITH LOGO */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+    /* LOGO STYLE (OPTION 1 – größer + Glow) */
+.brand-logo {
+  height: 48px;               /* größer */
+  width: auto;
+  border-radius: 8px;         /* rundere Ecken */
+  filter: drop-shadow(0 0 10px rgba(41,224,255,0.55));
+  transition: 0.25s ease;
+  object-fit: contain;
+}
+
+.brand-logo:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 16px rgba(41,224,255,0.9));
+}
+
 
     .brand-logo {
       height: 38px;
