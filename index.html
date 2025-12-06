@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Draftnex Solutions – Apps, Systeme, digitale Effizienz</title>
-  <meta name="description" content="Draftnex Solutions entwickelt Apps, digitale Systeme und Automationen für Selbstständige, kleine Unternehmen und Privatkunden. Technik, die für dich arbeitet." />
+  <title>Draftnex Solutions – Apps, Systeme, Automation</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
@@ -15,48 +14,46 @@
   <style>
     :root {
       --bg: #050712;
-      --bg-alt: #070a18;
       --fg: #f5f7ff;
       --muted: #9da3c6;
       --accent: #29e0ff;
       --accent-2: #c357ff;
-      --glow: 0 0 45px rgba(41,224,255,0.55);
-      --border-subtle: rgba(255,255,255,0.06);
       --radius-pill: 999px;
+      --glow: 0 0 40px rgba(41,224,255,0.5);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
-      background: radial-gradient(circle at top, #101326 0, #050712 55%, #020309 100%);
+    body {
+      background: radial-gradient(circle at top, #101326 0%, #050712 55%, #020309 100%);
       color: var(--fg);
       font-family: "Space Grotesk", sans-serif;
-      scroll-behavior: smooth;
-      min-height: 100%;
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(22px);
+      padding: 0.8rem 0;
+      backdrop-filter: blur(18px);
       background: rgba(3, 5, 18, 0.85);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 20;
     }
 
     .wrapper {
-      width: min(1120px, 100% - 2rem);
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      align-items: center;
     }
 
-    /* BRANDBLOCK - repariert & optimiert */
+    /* LOGO */
     .brand {
       display: flex;
       align-items: center;
@@ -64,117 +61,110 @@
     }
 
     .brand-logo {
-      height: 52px; /* perfekte A-Größe */
+      height: 70px; /* GROß – wie du wolltest */
       width: auto;
-      filter: drop-shadow(0 0 14px rgba(41,224,255,0.75));
+      filter: drop-shadow(0 0 15px rgba(41,224,255,0.75));
       transition: 0.25s ease;
     }
 
     .brand-logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 18px rgba(41,224,255,1));
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 22px rgba(41,224,255,1));
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.12;
+      line-height: 1.1;
     }
 
     .brand-main {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.06em;
     }
 
     .brand-sub {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       opacity: 0.75;
       letter-spacing: 0.08em;
       margin-top: 2px;
-      color: var(--muted);
     }
 
+    /* NAVIGATION */
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.2rem;
+      gap: 1.4rem;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
-      padding: 0.35rem 0.1rem;
+      font-size: 0.95rem;
+      padding-bottom: 4px;
+      transition: 0.2s ease;
       position: relative;
     }
 
-    nav a:hover {
-      color: var(--fg);
-    }
+    nav a:hover { color: var(--fg); }
 
     nav a::after {
       content: "";
       position: absolute;
-      left: 0;
       bottom: -4px;
+      left: 0;
       width: 0;
       height: 2px;
-      border-radius: 999px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width 180ms ease-out;
+      transition: 0.3s ease;
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
+    nav a:hover::after { width: 100%; }
 
+    /* CTA BUTTONS */
     .nav-cta {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
     }
 
     .btn {
       border-radius: var(--radius-pill);
-      padding: 0.45rem 1.15rem;
-      font-size: 0.83rem;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(17,22,50,0.85);
+      color: var(--fg);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.13);
-      color: var(--fg);
+      transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, rgba(41,224,255,0.22), rgba(195,87,255,0.12));
       border-color: rgba(41,224,255,0.75);
+      background: linear-gradient(135deg, rgba(41,224,255,0.25), rgba(195,87,255,0.15));
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 22px rgba(41,224,255,0.6);
+      box-shadow: 0 0 25px rgba(41,224,255,0.7);
     }
 
     .btn-ghost {
-      background: transparent;
       border-style: dashed;
+      border-color: rgba(255,255,255,0.25);
       color: var(--muted);
+      background: transparent;
     }
 
-    .btn-ghost:hover {
-      border-style: solid;
-    }
-
-    /* Mobile Toggle */
+    /* MOBILE NAV (IF NEEDED) */
     .nav-toggle {
       display: none;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
+      background: rgba(5,8,22,0.9);
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(7, 10, 24, 0.9);
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -189,13 +179,14 @@
 
 <body>
 
-<!-- ================= HEADER ================ -->
 <header>
   <div class="wrapper">
     <div class="nav">
 
+      <!-- BRAND -->
       <div class="brand">
-        <img src="draftnex-logo.png" alt="Draftnex Logo" class="brand-logo">
+        <img src="draftnex-logo.png" class="brand-logo" alt="Draftnex Logo">
+
         <div class="brand-text">
           <span class="brand-main">Draftnex Solutions</span>
           <span class="brand-sub">Apps · Systeme · Automation</span>
@@ -212,8 +203,8 @@
       </nav>
 
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="services.html"><i class="fa-solid fa-layer-group"></i> Leistungen</a>
-        <a class="btn btn-primary" href="contact.html"><i class="fa-solid fa-paper-plane"></i> Projekt anfragen</a>
+        <a href="services.html" class="btn btn-ghost"><i class="fa-solid fa-layer-group"></i> Leistungen</a>
+        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Projekt anfragen</a>
       </div>
 
       <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
@@ -222,147 +213,533 @@
   </div>
 </header>
 
-
-
- <!-- ================= HERO SECTION ================ -->
-<main>
+<!-- HERO START -->
 <section class="hero" id="hero">
-  <div class="wrapper hero-grid">
+<style>
+/* HERO SECTION */
+.hero {
+  padding: 4rem 0 5rem;
+}
 
-    <!-- LEFT SIDE – TEXT -->
-    <div class="hero-copy reveal">
-      <div class="eyebrow">
-        <i class="fa-solid fa-bolt"></i>
-        Apps & digitale Systeme für Menschen, die einfach arbeiten wollen
-      </div>
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 2.8rem;
+  align-items: center;
+}
 
-      <h1>
-        <span>Draftnex Solutions</span> baut Apps,<br />
-        die deinen Alltag wirklich leichter machen.
-      </h1>
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(41,224,255,0.45);
+  background: rgba(41,224,255,0.15);
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
 
-      <p class="hero-sub">
-        Ich entwickle <strong>maßgeschneiderte Apps, digitale Systeme und Automationen</strong>,
-        die perfekt zu dir passen – für Selbstständige, kleine Unternehmen und alle,
-        die genug von Chaos, Excel-Hölle und Tool-Overkill haben.
-      </p>
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
 
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">
-          <i class="fa-solid fa-sparkles"></i>
-          Projekt starten
-        </a>
-        <a href="#showcase" class="btn btn-ghost">
-          <i class="fa-solid fa-mobile-screen-button"></i>
-          App-Showcase ansehen
-        </a>
-      </div>
+.hero h1 span {
+  background: linear-gradient(120deg, #fff, #99ecff, #eab4ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-      <div class="hero-meta">
-        <div class="chip">
-          <i class="fa-solid fa-code"></i>
-          App-Entwicklung · Mobile & Desktop
-        </div>
-        <div class="chip">
-          <i class="fa-solid fa-circle-nodes"></i>
-          Digitale Systeme · Automation · KI
-        </div>
-      </div>
+.hero-sub {
+  color: var(--muted);
+  max-width: 34rem;
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.chip {
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.9rem;
+  background: rgba(6,10,24,0.9);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* 3D SHOWCASE SECTION ------------------------------ */
+.hero-visual {
+  position: relative;
+  perspective: 1400px;
+}
+
+.hero-orbit {
+  position: absolute;
+  inset: -40px;
+  border-radius: 30px;
+  border: 1px solid rgba(41,224,255,0.18);
+  background: radial-gradient(circle at top, rgba(41,224,255,0.15), transparent 70%);
+  filter: blur(15px);
+  opacity: 0.6;
+}
+
+/* Floating stack */
+.app-stack {
+  transform-style: preserve-3d;
+  transform: rotateY(-16deg) rotateX(14deg) translateZ(0);
+  animation: float3d 13s ease-in-out infinite alternate;
+}
+
+@keyframes float3d {
+  0%   { transform: rotateY(-16deg) rotateX(14deg) translate3d(0,0,0); }
+  50%  { transform: rotateY(-20deg) rotateX(17deg) translate3d(0,-6px,12px); }
+  100% { transform: rotateY(-18deg) rotateX(13deg) translate3d(0,2px,-6px); }
+}
+
+/* Card container */
+.app-card {
+  border-radius: 26px;
+  padding: 1.2rem;
+  background: radial-gradient(circle at top left, rgba(41,224,255,0.22), rgba(5,7,18,0.95));
+  border: 1px solid rgba(41,224,255,0.5);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.65), 0 0 35px rgba(41,224,255,0.6);
+  width: 270px;
+  transform: translateZ(40px);
+  margin-left: auto;
+}
+
+/* Card header */
+.app-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-family: "JetBrains Mono";
+  font-size: 0.7rem;
+}
+
+.app-dot-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.app-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(10,14,35,0.6);
+  border: 1px solid rgba(255,255,255,0.25);
+  position: relative;
+}
+
+.app-dot.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 0%, var(--accent), transparent 70%);
+  opacity: 1;
+}
+
+/* Phone container */
+.app-phone {
+  border-radius: 20px;
+  padding: 0.9rem;
+  background: rgba(6,8,22,0.95);
+  border: 1px solid rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+.app-status {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.65rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Phone UI */
+.app-ui-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0.7rem;
+}
+
+.app-list {
+  background: rgba(14,20,48,0.9);
+  border-radius: 12px;
+  padding: 0.6rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.app-item {
+  background: rgba(8,12,34,0.9);
+  border-radius: 9px;
+  padding: 0.45rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.65rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-item strong {
+  color: #dff8ff;
+}
+
+
+/* Pills */
+.app-pill {
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Stats panel */
+.app-stats {
+  background: radial-gradient(circle at top, rgba(41,224,255,0.18), rgba(5,7,18,0.95));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.app-stat-label {
+  color: var(--muted);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.app-stat-value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #dffaff;
+}
+
+.app-progress {
+  background: rgba(255,255,255,0.12);
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.app-progress-inner {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  height: 100%;
+  transform: scaleX(0.78);
+  transform-origin: left;
+}
+
+/* Floating side card */
+.app-float-card {
+  position: absolute;
+  right: -35px;
+  top: 32%;
+  background: rgba(5,8,22,0.95);
+  border-radius: 16px;
+  border: 1px solid rgba(195,87,255,0.7);
+  padding: 0.8rem;
+  width: 210px;
+  box-shadow: 0 0 35px rgba(195,87,255,0.6);
+  animation: floatSide 12s ease-in-out infinite alternate;
+  color: #fef1ff;
+  font-size: 0.75rem;
+}
+
+@keyframes floatSide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+.app-float-card span {
+  color: var(--muted);
+}
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.app-badge i { color: var(--accent-2); }
+
+/* -------- FEATURES SECTION -------- */
+
+section {
+  padding: 3rem 0 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill {
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(8,12,30,0.9);
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1.5rem;
+}
+
+.feature {
+  background: rgba(10,13,30,0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1.4rem;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.75);
+  transition: 0.3s ease;
+}
+
+.feature:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.feature-icon {
+  background: radial-gradient(circle at 0 0, rgba(41,224,255,0.4), rgba(10,16,40,0.95));
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: #e5faff;
+}
+
+.feature p {
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+/* SHOWCASE SECTION */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.showcase-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+}
+
+.showcase-card {
+  background: rgba(12,16,36,0.93);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1rem;
+  transition: 0.3s ease;
+}
+
+.showcase-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.showcase-card span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(207,242,255,1);
+}
+
+.showcase-card strong {
+  font-size: 0.9rem;
+}
+
+.showcase-card p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.showcase-badge {
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.15rem 0.6rem;
+  font-size: 0.7rem;
+  color: #d8f8ff;
+}
+</style>
+
+<!-- HERO GRID CONTENT -->
+<div class="wrapper hero-grid">
+
+  <div class="hero-copy reveal">
+    <div class="eyebrow">
+      <i class="fa-solid fa-bolt"></i>
+      Apps & digitale Systeme für Menschen, die einfach arbeiten wollen
     </div>
 
-    <!-- RIGHT SIDE – 3D APP GRAPHIC -->
-    <div class="hero-visual" data-parallax="0.12">
-      <div class="hero-orbit"></div>
+    <h1>
+      <span>Draftnex Solutions</span> baut Apps,<br />
+      die deinen Alltag wirklich leichter machen.
+    </h1>
 
-      <div class="app-stack reveal">
-        <div class="app-card">
-          <div class="app-card-header">
-            <span>Realtime Dashboard</span>
-            <div class="app-dot-row">
-              <div class="app-dot active"></div>
-              <div class="app-dot"></div>
-              <div class="app-dot"></div>
-            </div>
-          </div>
+    <p class="hero-sub">
+      Ich entwickle <strong>maßgeschneiderte Apps, digitale Systeme und Automationen</strong>,
+      die perfekt zu dir passen – für Selbstständige, kleine Unternehmen und alle,
+      die genug von Chaos, Excel-Hölle und Tool-Overkill haben.
+    </p>
 
-          <div class="app-phone">
-            <div class="app-status">
-              <span>Heute · 08:32</span>
-              <span>Sync aktiv · 3 Geräte</span>
-            </div>
-
-            <div class="app-ui-row">
-              <div class="app-list">
-                <div class="app-item">
-                  <div>
-                    <strong>Rechnungen</strong>
-                    <div>Automatisch sortiert</div>
-                  </div>
-                  <div class="app-pill">Zeit</div>
-                </div>
-
-                <div class="app-item">
-                  <div>
-                    <strong>Kunden</strong>
-                    <div>Alle Infos an einem Ort</div>
-                  </div>
-                  <div class="app-pill">Fokus</div>
-                </div>
-
-                <div class="app-item">
-                  <div>
-                    <strong>Tasks</strong>
-                    <div>Erinnerungen, die Sinn machen</div>
-                  </div>
-                  <div class="app-pill">Flow</div>
-                </div>
-              </div>
-
-              <div class="app-stats">
-                <div class="app-stat">
-                  <span class="app-stat-label">Zeitersparnis</span>
-                  <span class="app-stat-value">– 37 % Admin</span>
-                  <div class="app-progress">
-                    <div class="app-progress-inner"></div>
-                  </div>
-                </div>
-
-                <div class="app-stat">
-                  <span class="app-stat-label">Fehler</span>
-                  <span class="app-stat-value">– 64 %</span>
-                </div>
-
-                <div class="app-stat">
-                  <span class="app-stat-label">Fokus</span>
-                  <span class="app-stat-value">+ Klarheit im Alltag</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="app-tagline">
-              Deine App, dein System – kein Baukasten, sondern genau das, was du brauchst.
-            </div>
-          </div>
-        </div>
-
-        <!-- FLOATING CARD -->
-        <div class="app-float-card">
-          <strong>Individuelle App statt 10 Tools.</strong>
-          <span>Eine Lösung, die zu deinem Alltag passt. Kein Abo-Dschungel, kein Overkill.</span>
-
-          <div class="app-badge">
-            <i class="fa-solid fa-check-double"></i>
-            Android · Desktop · Web · KI-Workflows
-          </div>
-        </div>
-      </div>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-sparkles"></i> Projekt starten</a>
+      <a href="#showcase" class="btn btn-ghost"><i class="fa-solid fa-mobile-screen-button"></i> App-Showcase ansehen</a>
     </div>
 
+    <div class="hero-meta">
+      <div class="chip"><i class="fa-solid fa-code"></i> App-Entwicklung · Mobile & Desktop</div>
+      <div class="chip"><i class="fa-solid fa-circle-nodes"></i> Digitale Systeme · Automation · KI</div>
+    </div>
   </div>
-</section>
+
+  <!-- 3D GRAPHIC REPAIRED -->
+  <div class="hero-visual reveal" data-parallax="0.12">
+
+    <div class="hero-orbit"></div>
+
+    <div class="app-stack">
+      <div class="app-card">
+        <div class="app-card-header">
+          <span>Realtime Dashboard</span>
+          <div class="app-dot-row">
+            <div class="app-dot active"></div>
+            <div class="app-dot"></div>
+            <div class="app-dot"></div>
+          </div>
+        </div>
+
+        <div class="app-phone">
+          <div class="app-status">
+            <span>Heute · 08:32</span>
+            <span>Sync aktiv · 3 Geräte</span>
+          </div>
+
+          <div class="app-ui-row">
+            <div class="app-list">
+
+              <div class="app-item">
+                <div>
+                  <strong>Rechnungen</strong>
+                  <div>Automatisch sortiert</div>
+                </div>
+                <div class="app-pill">Zeit</div>
+              </div>
+
+              <div class="app-item">
+                <div>
+                  <strong>Kunden</strong>
+                  <div>Alle Infos an einem Ort</div>
+                </div>
+                <div class="app-pill">Fokus</div>
+              </div>
+
+              <div class="app-item">
+                <div>
+                  <strong>Tasks</strong>
+                  <div>Erinnerungen, die Sinn machen</div>
+                </div>
+                <div class="app-pill">Flow</div>
+              </div>
+
+            </div>
+
+            <div class="app-stats">
+
+              <div class="app-stat">
+                <span class="app-stat-label">Zeitersparnis</span>
+                <span class="app-stat-value">– 37 % Admin</span>
+                <div class="app-progress"><div class="app-progress-inner"></div></div>
+              </div>
+
+              <div class="app-stat">
+                <span class="app-stat-label">Fehler</span>
+                <span class="app-stat-value">– 64 %</span>
+              </div>
+
+              <div class="app-stat">
+                <span class="app-stat-label">Fokus</span>
+                <span class="app-stat-value">+ Klarheit im Alltag</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="app-tagline">
+            Deine App, dein System – kein Baukasten, sondern exakt das, was du brauchst.
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Floating side card -->
+      <div class="app-float-card">
+        <strong>Individuelle App statt 10 Tools.</strong>
+        <span>Eine Lösung, die perfekt zu deinem Alltag passt. Kein Overkill.</span>
+        <div class="app-badge">
+          <i class="fa-solid fa-check-double"></i> Android · Desktop · Web · KI
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
 
-<!-- ================= FEATURES SECTION ================ -->
+<!-- ===================== FEATURES SECTION ===================== -->
 <section id="features">
   <div class="wrapper">
     <div class="section-header reveal">
@@ -370,234 +747,170 @@
         <h2>Was Draftnex Solutions ausmacht</h2>
         <div class="pill-row">
           <div class="pill">App-Entwicklung als Kern</div>
-          <div class="pill">Digitale Systeme & Automationen</div>
-          <div class="pill">Keine Fachsprache, klare Lösungen</div>
+          <div class="pill">Digitale Systeme & Automation</div>
+          <div class="pill">Klare Lösungen ohne Fachsprache</div>
         </div>
       </div>
       <p>
-        Ich verbinde Entwicklung, Struktur und Verständnis. Keine leeren Buzzwords –
-        sondern Systeme, die du wirklich nutzen kannst: sauber gebaut, verständlich erklärt
-        und auf deinen Alltag abgestimmt.
+        Ich verbinde Entwicklung, Struktur und Verständnis. Keine Buzzwords – nur echte Lösungen.
       </p>
     </div>
 
-    <div class="feature-grid reveal">
-      <article class="feature">
+    <div class="feature-grid">
+
+      <article class="feature reveal">
         <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
         <h3>Apps, die wirklich arbeiten</h3>
-        <p>Mobile, Desktop oder Web: Ich baue kleine bis mittlere Anwendungen, die dir Zeit sparen.</p>
+        <p>Mobile, Desktop oder Web – kleine bis mittlere Apps, die dir Zeit sparen.</p>
       </article>
 
-      <article class="feature">
+      <article class="feature reveal">
         <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
         <h3>Digitale Systeme & Ordnung</h3>
-        <p>Workflows, Notion-Systeme & Automationen, die sich deinem Alltag anpassen.</p>
+        <p>Workflows, Cloud, Automationen – eine Umgebung, die funktioniert.</p>
       </article>
 
-      <article class="feature">
+      <article class="feature reveal">
         <div class="feature-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
         <h3>Support ohne Blabla</h3>
-        <p>Einrichtung, Fehleranalyse & Optimierung – direkt, verständlich, ohne Fachchinesisch.</p>
+        <p>Einrichtung, Optimierung & technischer Support – klar und verständlich.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================= APP SHOWCASE SECTION ================ -->
-<section id="showcase">
-  <div class="wrapper">
-    <div class="section-header reveal">
-      <div><h2>App-Showcase · Was ich für dich bauen kann</h2></div>
-      <p>
-        Jede App ist individuell, aber viele Probleme ähneln sich:
-        zu viele Tools, zu viele Klicks, zu wenig Überblick.
-      </p>
-    </div>
-
-    <div class="showcase-grid">
-
-      <div class="showcase-cards reveal">
-
-        <article class="showcase-card">
-          <span>Mini-CRM</span>
-          <strong>Kunden & Projekte im Griff</strong>
-          <p>Alle Kontakte, Rechnungen & Notizen an einem Ort.</p>
-          <div class="showcase-badges">
-            <div class="showcase-badge">Selbstständige</div>
-            <div class="showcase-badge">Dienstleister</div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <span>Automation Hub</span>
-          <strong>Wiederkehrende Aufgaben automatisieren</strong>
-          <p>Dateien sortieren, Daten ablegen, Erinnerungen auslösen – automatisch.</p>
-          <div class="showcase-badges">
-            <div class="showcase-badge">Backoffice</div>
-            <div class="showcase-badge">Verwaltung</div>
-          </div>
-        </article>
-
-        <article class="showcase-card">
-          <span>Productivity Suite</span>
-          <strong>Dein Arbeits-Cockpit</strong>
-          <p>Fokus, Deadlines & Status – klar auf einen Blick.</p>
-          <div class="showcase-badges">
-            <div class="showcase-badge">Freelancer</div>
-            <div class="showcase-badge">Teams</div>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="showcase-copy reveal">
-        <p>
-          Statt dich in die Grenzen von Standard-Software zu pressen,
-          baue ich dir eine Lösung, die sich an dich anpasst.
-        </p>
-
-        <ul>
-          <li>Individuelle Apps (Android, Desktop, Web)</li>
-          <li>Saubere Datenbasis statt Excel-Chaos</li>
-          <li>Automatisierte Abläufe für wiederkehrende Aufgaben</li>
-          <li>Optional KI für Texte, Ordnung & Recherche</li>
-        </ul>
-
-        <div style="margin-top: 1.2rem;">
-          <a href="contact.html" class="btn btn-primary">
-            <i class="fa-solid fa-lightbulb"></i>
-            Idee kurz schildern
-          </a>
-        </div>
-      </div>
 
     </div>
   </div>
 </section>
-
-
-    <!-- FEATURES -->
-    <!-- ================= PROCESS SECTION ================ -->
+<!-- ===================== PROCESS SECTION ===================== -->
 <section id="process">
   <div class="wrapper">
     <div class="section-header reveal">
-      <div><h2>Wie die Zusammenarbeit abläuft</h2></div>
+      <div>
+        <h2>Wie die Zusammenarbeit abläuft</h2>
+      </div>
       <p>
-        Kein Agenturtheater. Du sprichst direkt mit der Person, die deine App baut –  
-        von der ersten Idee bis zum finalen Feinschliff.
+        Kein Agenturtheater – du sprichst direkt mit der Person, die deine App wirklich baut:
+        vom Konzept bis zum Feinschliff.
       </p>
     </div>
 
     <div class="process-grid">
-
       <div class="process-step reveal">
         <div class="process-label">01 · Kennenlernen</div>
         <h3>Dein Alltag, deine Probleme</h3>
-        <p>
-          Wir analysieren gemeinsam deine Arbeitsweise, Pain-Points
-          und was du dir wirklich wünschst.
-        </p>
+        <p>Wir schauen uns an, wo du stehst, was fehlt und welche Lösung sinnvoll ist.</p>
       </div>
 
       <div class="process-step reveal">
         <div class="process-label">02 · Konzept & Prototyp</div>
         <h3>Eine Lösung, die Sinn macht</h3>
-        <p>
-          Ich entwickle einen klaren Aufbau und einen ersten klickbaren Prototypen,
-          damit du sofort ein Gefühl bekommst.
-        </p>
+        <p>Du bekommst einen klickbaren Prototypen – damit du sofort siehst, wie es funktioniert.</p>
       </div>
 
       <div class="process-step reveal">
         <div class="process-label">03 · Umsetzung & Feinschliff</div>
         <h3>Live in deinem Alltag</h3>
-        <p>
-          Wir testen gemeinsam, passen an und optimieren so lange,
-          bis es sich für dich absolut stimmig anfühlt.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- CTA BOX -->
-    <div class="cta reveal">
-      <div>
-        <h2>Bereit für weniger Chaos und mehr Klarheit?</h2>
-        <p>
-          Erzähl mir kurz, womit du gerade kämpfst – ich melde mich mit einer ehrlichen Einschätzung,
-          ob und wie ich dir helfen kann.
-        </p>
-      </div>
-      <div>
-        <a href="contact.html" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i>
-          Nachricht senden
-        </a>
+        <p>Wir testen, optimieren und schärfen so lange nach, bis alles perfekt sitzt.</p>
       </div>
     </div>
 
+    <!-- CALL TO ACTION -->
+    <div class="cta reveal" style="
+      margin-top: 3.5rem;
+      border-radius: var(--radius-xl);
+      padding: 1.6rem 1.8rem;
+      background: linear-gradient(135deg,
+        rgba(41,224,255,0.22),
+        rgba(195,87,255,0.18),
+        rgba(3,5,18,0.96)
+      );
+      border: 1px solid rgba(41,224,255,0.6);
+      box-shadow: 0 0 45px rgba(41,224,255,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    ">
+      <div>
+        <h2>Bereit für Klarheit statt Chaos?</h2>
+        <p>
+          Erzähl mir kurz, was du brauchst – ich melde mich mit einer ehrlichen Einschätzung
+          und den nächsten Schritten.
+        </p>
+      </div>
+
+      <a href="contact.html" class="btn btn-primary">
+        <i class="fa-solid fa-paper-plane"></i>
+        Nachricht senden
+      </a>
+    </div>
   </div>
 </section>
-</main>
 
-
-<!-- ================= FOOTER ================ -->
+<!-- ===================== FOOTER ===================== -->
 <footer>
-  <div class="wrapper footer-row">
+  <div class="wrapper footer-row" style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--muted);
+    padding: 1.4rem 0 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  ">
     <div>© <span id="year"></span> Draftnex Solutions. Alle Rechte vorbehalten.</div>
 
-    <div class="footer-links">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="about.html">Über mich</a>
+    <div class="footer-links" style="display: flex; gap: 1rem;">
+      <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a>
+      <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
+      <a href="about.html" style="color: var(--muted); text-decoration:none;">Über mich</a>
     </div>
   </div>
 </footer>
 
-
-<!-- ================= JAVASCRIPT ================ -->
+<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  // Dynamische Jahreszahl
-  document.getElementById("year").textContent = new Date().getFullYear();
+// Jahr automatisch setzen
+document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Mobile Navigation Toggle
-  const navContainer = document.querySelector(".nav");
-  const navToggle = document.querySelector(".nav-toggle");
+// Mobile Navigation
+const nav = document.querySelector(".nav");
+const navToggle = document.querySelector(".nav-toggle");
 
+if (navToggle) {
   navToggle.addEventListener("click", () => {
-    navContainer.classList.toggle("open");
-    navToggle.innerHTML = navContainer.classList.contains("open")
+    nav.classList.toggle("open");
+    navToggle.innerHTML = nav.classList.contains("open")
       ? '<i class="fa-solid fa-xmark"></i>'
       : '<i class="fa-solid fa-bars"></i>';
   });
+}
 
-  // Scroll Reveal Animation
-  const revealEls = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.14 }
-  );
-
-  revealEls.forEach((el) => observer.observe(el));
-
-  // Simple Parallax Effect
-  const parallaxEls = document.querySelectorAll("[data-parallax]");
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    parallaxEls.forEach((el) => {
-      const speed = parseFloat(el.dataset.parallax) || 0.1;
-      el.style.transform = `translateY(${scrollY * speed * -1}px)`;
+// Scroll Reveal
+const revealElements = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
+  },
+  { threshold: 0.15 }
+);
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Parallax
+const parallaxElements = document.querySelectorAll("[data-parallax]");
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  parallaxElements.forEach(el => {
+    const speed = parseFloat(el.dataset.parallax) || 0.1;
+    el.style.transform = `translateY(${scrollY * speed * -1}px)`;
   });
+});
 </script>
 
 </body>
 </html>
-
