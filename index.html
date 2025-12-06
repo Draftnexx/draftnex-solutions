@@ -115,14 +115,14 @@
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
+  display: flex;
+  align-items: center;      /* bleibt */
+  gap: 0.8rem;              /* etwas mehr Luft zwischen Logo & Text */
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;       /* minimal kleiner, wirkt edler und ruhiger */
+}
 
     .brand-mark {
       width: 32px;
@@ -163,12 +163,14 @@
 }
 
 .brand-logo {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   display: block;
+  transform: translateY(1px);
   filter: drop-shadow(0 0 12px rgba(41, 224, 255, 0.45));
 }
+
 
     nav ul {
       display: flex;
