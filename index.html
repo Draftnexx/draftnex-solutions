@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Draftnex Solutions – Apps, Systeme, Automation</title>
+  <title>Draftnex Solutions – Apps, Systeme, digitale Effizienz</title>
+  <meta name="description" content="Draftnex Solutions entwickelt Apps, digitale Systeme und Automationen für Selbstständige, kleine Unternehmen und Privatkunden. Technik, die für dich arbeitet." />
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
@@ -14,140 +15,142 @@
   <style>
     :root {
       --bg: #050712;
+      --bg-alt: #070a18;
       --fg: #f5f7ff;
       --muted: #9da3c6;
       --accent: #29e0ff;
       --accent-2: #c357ff;
+      --accent-soft: rgba(41,224,255,0.16);
+      --glow: 0 0 45px rgba(41,224,255,0.5);
+      --border-subtle: rgba(255,255,255,0.06);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
       --radius-pill: 999px;
-      --glow: 0 0 40px rgba(41,224,255,0.5);
+      --transition-fast: 180ms ease-out;
+      --transition-med: 260ms ease-out;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: radial-gradient(circle at top, #101326 0%, #050712 55%, #020309 100%);
+    html, body {
+      background: radial-gradient(circle at top, #101326 0, #050712 55%, #020309 100%);
       color: var(--fg);
       font-family: "Space Grotesk", sans-serif;
-      overflow-x: hidden;
+      scroll-behavior: smooth;
+      min-height: 100%;
     }
 
-    /* HEADER */
+    body { position: relative; overflow-x: hidden; }
+
+    /* HEADER ORIGINAL */
     header {
       position: sticky;
       top: 0;
-      padding: 0.8rem 0;
-      backdrop-filter: blur(18px);
-      background: rgba(3, 5, 18, 0.85);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
       z-index: 20;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(to bottom, rgba(3, 5, 18, 0.97), rgba(3, 5, 18, 0.84), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
 
     .wrapper {
-      width: min(1120px, 90%);
+      width: min(1120px, 100% - 2rem);
       margin: 0 auto;
     }
 
     .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
     }
 
-    /* LOGO */
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-    }
-
-    .brand-logo {
-      height: 70px; /* GROß – wie du wolltest */
-      width: auto;
-      filter: drop-shadow(0 0 15px rgba(41,224,255,0.75));
-      transition: 0.25s ease;
-    }
-
-    .brand-logo:hover {
-      transform: scale(1.06);
-      filter: drop-shadow(0 0 22px rgba(41,224,255,1));
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-main {
-      font-size: 1.15rem;
+      gap: 0.6rem;
       font-weight: 600;
       letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
-    .brand-sub {
-      font-size: 0.78rem;
-      opacity: 0.75;
-      letter-spacing: 0.08em;
-      margin-top: 2px;
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      border: 1px solid rgba(41, 224, 255, 0.7);
+      background: radial-gradient(circle at 20% 0%, #29e0ff, #171c37);
+      box-shadow: 0 0 18px rgba(41, 224, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.85rem;
     }
 
-    /* NAVIGATION */
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.4rem;
+      gap: 1.2rem;
+      font-size: 0.9rem;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.95rem;
-      padding-bottom: 4px;
-      transition: 0.2s ease;
+      padding: 0.4rem 0.1rem;
       position: relative;
+      transition: color var(--transition-fast);
     }
 
-    nav a:hover { color: var(--fg); }
+    nav a:hover {
+      color: var(--fg);
+    }
 
     nav a::after {
       content: "";
       position: absolute;
-      bottom: -4px;
       left: 0;
+      bottom: -4px;
       width: 0;
       height: 2px;
+      border-radius: 999px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: 0.3s ease;
+      transition: width var(--transition-fast);
     }
 
-    nav a:hover::after { width: 100%; }
-
-    /* CTA BUTTONS */
+    nav a:hover::after {
+      width: 100%;
+    }
     .nav-cta {
       display: flex;
-      gap: 0.7rem;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .btn {
       border-radius: var(--radius-pill);
-      padding: 0.5rem 1.2rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(17,22,50,0.85);
+      padding: 0.45rem 1.15rem;
+      font-size: 0.83rem;
       color: var(--fg);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      background: rgba(17, 22, 50, 0.85);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: 0.25s ease;
+      backdrop-filter: blur(8px);
     }
 
     .btn-primary {
-      border-color: rgba(41,224,255,0.75);
-      background: linear-gradient(135deg, rgba(41,224,255,0.25), rgba(195,87,255,0.15));
+      border-color: rgba(41,224,255,0.8);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.14));
     }
 
     .btn-primary:hover {
-      box-shadow: 0 0 25px rgba(41,224,255,0.7);
+      box-shadow: 0 0 25px rgba(41,224,255,0.6);
+      transform: translateY(-1px);
     }
 
     .btn-ghost {
@@ -157,760 +160,689 @@
       background: transparent;
     }
 
-    /* MOBILE NAV (IF NEEDED) */
+    .btn-ghost:hover {
+      border-style: solid;
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* Mobile Navigation */
     .nav-toggle {
       display: none;
-      width: 34px;
-      height: 34px;
+      background: rgba(7, 10, 24, 0.9);
       border-radius: 999px;
-      background: rgba(5,8,22,0.9);
+      width: 36px;
+      height: 36px;
       border: 1px solid rgba(255,255,255,0.18);
       align-items: center;
       justify-content: center;
       cursor: pointer;
     }
 
+    .nav-toggle i {
+      font-size: 1.05rem;
+    }
+
     @media (max-width: 820px) {
       nav ul, .nav-cta { display: none; }
       .nav-toggle { display: flex; }
     }
-  </style>
-</head>
 
-<body>
-
-<header>
-  <div class="wrapper">
-    <div class="nav">
-
-      <!-- BRAND -->
-      <div class="brand">
-        <img src="draftnex-logo.png" class="brand-logo" alt="Draftnex Logo">
-
-        <div class="brand-text">
-          <span class="brand-main">Draftnex Solutions</span>
-          <span class="brand-sub">Apps · Systeme · Automation</span>
-        </div>
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#hero">Start</a></li>
-          <li><a href="services.html">Leistungen</a></li>
-          <li><a href="about.html">Über mich</a></li>
-          <li><a href="#showcase">App-Showcase</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-cta">
-        <a href="services.html" class="btn btn-ghost"><i class="fa-solid fa-layer-group"></i> Leistungen</a>
-        <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Projekt anfragen</a>
-      </div>
-
-      <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
-
-    </div>
-  </div>
-</header>
-
-<!-- HERO START -->
-<section class="hero" id="hero">
-<style>
-/* HERO SECTION */
-.hero {
-  padding: 4rem 0 5rem;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 2.8rem;
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.8rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(41,224,255,0.45);
-  background: rgba(41,224,255,0.15);
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 4vw, 3.3rem);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.hero h1 span {
-  background: linear-gradient(120deg, #fff, #99ecff, #eab4ff);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero-sub {
-  color: var(--muted);
-  max-width: 34rem;
-  margin-bottom: 1.8rem;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.8rem;
-  margin-bottom: 1.6rem;
-}
-
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.chip {
-  border-radius: var(--radius-pill);
-  padding: 0.35rem 0.9rem;
-  background: rgba(6,10,24,0.9);
-  border: 1px solid rgba(255,255,255,0.12);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-/* 3D SHOWCASE SECTION ------------------------------ */
-.hero-visual {
-  position: relative;
-  perspective: 1400px;
-}
-
-.hero-orbit {
-  position: absolute;
-  inset: -40px;
-  border-radius: 30px;
-  border: 1px solid rgba(41,224,255,0.18);
-  background: radial-gradient(circle at top, rgba(41,224,255,0.15), transparent 70%);
-  filter: blur(15px);
-  opacity: 0.6;
-}
-
-/* Floating stack */
-.app-stack {
-  transform-style: preserve-3d;
-  transform: rotateY(-16deg) rotateX(14deg) translateZ(0);
-  animation: float3d 13s ease-in-out infinite alternate;
-}
-
-@keyframes float3d {
-  0%   { transform: rotateY(-16deg) rotateX(14deg) translate3d(0,0,0); }
-  50%  { transform: rotateY(-20deg) rotateX(17deg) translate3d(0,-6px,12px); }
-  100% { transform: rotateY(-18deg) rotateX(13deg) translate3d(0,2px,-6px); }
-}
-
-/* Card container */
-.app-card {
-  border-radius: 26px;
-  padding: 1.2rem;
-  background: radial-gradient(circle at top left, rgba(41,224,255,0.22), rgba(5,7,18,0.95));
-  border: 1px solid rgba(41,224,255,0.5);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.65), 0 0 35px rgba(41,224,255,0.6);
-  width: 270px;
-  transform: translateZ(40px);
-  margin-left: auto;
-}
-
-/* Card header */
-.app-card-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  font-family: "JetBrains Mono";
-  font-size: 0.7rem;
-}
-
-.app-dot-row {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.app-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: rgba(10,14,35,0.6);
-  border: 1px solid rgba(255,255,255,0.25);
-  position: relative;
-}
-
-.app-dot.active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 0%, var(--accent), transparent 70%);
-  opacity: 1;
-}
-
-/* Phone container */
-.app-phone {
-  border-radius: 20px;
-  padding: 0.9rem;
-  background: rgba(6,8,22,0.95);
-  border: 1px solid rgba(255,255,255,0.15);
-  overflow: hidden;
-}
-
-.app-status {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 0.65rem;
-  margin-bottom: 0.6rem;
-}
-
-/* Phone UI */
-.app-ui-row {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 0.7rem;
-}
-
-.app-list {
-  background: rgba(14,20,48,0.9);
-  border-radius: 12px;
-  padding: 0.6rem;
-  border: 1px solid rgba(255,255,255,0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.app-item {
-  background: rgba(8,12,34,0.9);
-  border-radius: 9px;
-  padding: 0.45rem;
-  border: 1px solid rgba(255,255,255,0.07);
-  font-size: 0.65rem;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-}
-
-.app-item strong {
-  color: #dff8ff;
-}
-
-
-/* Pills */
-.app-pill {
-  padding: 0.12rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Stats panel */
-.app-stats {
-  background: radial-gradient(circle at top, rgba(41,224,255,0.18), rgba(5,7,18,0.95));
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 0.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.app-stat-label {
-  color: var(--muted);
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.app-stat-value {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #dffaff;
-}
-
-.app-progress {
-  background: rgba(255,255,255,0.12);
-  height: 4px;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.app-progress-inner {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  height: 100%;
-  transform: scaleX(0.78);
-  transform-origin: left;
-}
-
-/* Floating side card */
-.app-float-card {
-  position: absolute;
-  right: -35px;
-  top: 32%;
-  background: rgba(5,8,22,0.95);
-  border-radius: 16px;
-  border: 1px solid rgba(195,87,255,0.7);
-  padding: 0.8rem;
-  width: 210px;
-  box-shadow: 0 0 35px rgba(195,87,255,0.6);
-  animation: floatSide 12s ease-in-out infinite alternate;
-  color: #fef1ff;
-  font-size: 0.75rem;
-}
-
-@keyframes floatSide {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-
-.app-float-card span {
-  color: var(--muted);
-}
-
-.app-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.5rem;
-  font-size: 0.7rem;
-}
-
-.app-badge i { color: var(--accent-2); }
-
-/* -------- FEATURES SECTION -------- */
-
-section {
-  padding: 3rem 0 0;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.section-header h2 {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.pill {
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(8,12,30,0.9);
-  padding: 0.2rem 0.7rem;
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 1.5rem;
-}
-
-.feature {
-  background: rgba(10,13,30,0.9);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 1.4rem;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.75);
-  transition: 0.3s ease;
-}
-
-.feature:hover {
-  border-color: var(--accent);
-  box-shadow: var(--glow);
-}
-
-.feature-icon {
-  background: radial-gradient(circle at 0 0, rgba(41,224,255,0.4), rgba(10,16,40,0.95));
-  width: 35px;
-  height: 35px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  color: #e5faff;
-}
-
-.feature p {
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-}
-
-/* SHOWCASE SECTION */
-.showcase-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.showcase-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 1rem;
-}
-
-.showcase-card {
-  background: rgba(12,16,36,0.93);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 1rem;
-  transition: 0.3s ease;
-}
-
-.showcase-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--glow);
-}
-
-.showcase-card span {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(207,242,255,1);
-}
-
-.showcase-card strong {
-  font-size: 0.9rem;
-}
-
-.showcase-card p {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.showcase-badge {
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 0.15rem 0.6rem;
-  font-size: 0.7rem;
-  color: #d8f8ff;
-}
-</style>
-
-<!-- HERO GRID CONTENT -->
-<div class="wrapper hero-grid">
-
-  <div class="hero-copy reveal">
-    <div class="eyebrow">
-      <i class="fa-solid fa-bolt"></i>
-      Apps & digitale Systeme für Menschen, die einfach arbeiten wollen
-    </div>
-
-    <h1>
-      <span>Draftnex Solutions</span> baut Apps,<br />
-      die deinen Alltag wirklich leichter machen.
-    </h1>
-
-    <p class="hero-sub">
-      Ich entwickle <strong>maßgeschneiderte Apps, digitale Systeme und Automationen</strong>,
-      die perfekt zu dir passen – für Selbstständige, kleine Unternehmen und alle,
-      die genug von Chaos, Excel-Hölle und Tool-Overkill haben.
-    </p>
-
-    <div class="hero-actions">
-      <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-sparkles"></i> Projekt starten</a>
-      <a href="#showcase" class="btn btn-ghost"><i class="fa-solid fa-mobile-screen-button"></i> App-Showcase ansehen</a>
-    </div>
-
-    <div class="hero-meta">
-      <div class="chip"><i class="fa-solid fa-code"></i> App-Entwicklung · Mobile & Desktop</div>
-      <div class="chip"><i class="fa-solid fa-circle-nodes"></i> Digitale Systeme · Automation · KI</div>
-    </div>
-  </div>
-
-  <!-- 3D GRAPHIC REPAIRED -->
-  <div class="hero-visual reveal" data-parallax="0.12">
-
-    <div class="hero-orbit"></div>
-
-    <div class="app-stack">
-      <div class="app-card">
-        <div class="app-card-header">
-          <span>Realtime Dashboard</span>
-          <div class="app-dot-row">
-            <div class="app-dot active"></div>
-            <div class="app-dot"></div>
-            <div class="app-dot"></div>
-          </div>
-        </div>
-
-        <div class="app-phone">
-          <div class="app-status">
-            <span>Heute · 08:32</span>
-            <span>Sync aktiv · 3 Geräte</span>
-          </div>
-
-          <div class="app-ui-row">
-            <div class="app-list">
-
-              <div class="app-item">
-                <div>
-                  <strong>Rechnungen</strong>
-                  <div>Automatisch sortiert</div>
-                </div>
-                <div class="app-pill">Zeit</div>
-              </div>
-
-              <div class="app-item">
-                <div>
-                  <strong>Kunden</strong>
-                  <div>Alle Infos an einem Ort</div>
-                </div>
-                <div class="app-pill">Fokus</div>
-              </div>
-
-              <div class="app-item">
-                <div>
-                  <strong>Tasks</strong>
-                  <div>Erinnerungen, die Sinn machen</div>
-                </div>
-                <div class="app-pill">Flow</div>
-              </div>
-
-            </div>
-
-            <div class="app-stats">
-
-              <div class="app-stat">
-                <span class="app-stat-label">Zeitersparnis</span>
-                <span class="app-stat-value">– 37 % Admin</span>
-                <div class="app-progress"><div class="app-progress-inner"></div></div>
-              </div>
-
-              <div class="app-stat">
-                <span class="app-stat-label">Fehler</span>
-                <span class="app-stat-value">– 64 %</span>
-              </div>
-
-              <div class="app-stat">
-                <span class="app-stat-label">Fokus</span>
-                <span class="app-stat-value">+ Klarheit im Alltag</span>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="app-tagline">
-            Deine App, dein System – kein Baukasten, sondern exakt das, was du brauchst.
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Floating side card -->
-      <div class="app-float-card">
-        <strong>Individuelle App statt 10 Tools.</strong>
-        <span>Eine Lösung, die perfekt zu deinem Alltag passt. Kein Overkill.</span>
-        <div class="app-badge">
-          <i class="fa-solid fa-check-double"></i> Android · Desktop · Web · KI
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-
-<!-- ===================== FEATURES SECTION ===================== -->
-<section id="features">
-  <div class="wrapper">
-    <div class="section-header reveal">
-      <div>
-        <h2>Was Draftnex Solutions ausmacht</h2>
-        <div class="pill-row">
-          <div class="pill">App-Entwicklung als Kern</div>
-          <div class="pill">Digitale Systeme & Automation</div>
-          <div class="pill">Klare Lösungen ohne Fachsprache</div>
-        </div>
-      </div>
-      <p>
-        Ich verbinde Entwicklung, Struktur und Verständnis. Keine Buzzwords – nur echte Lösungen.
-      </p>
-    </div>
-
-    <div class="feature-grid">
-
-      <article class="feature reveal">
-        <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-        <h3>Apps, die wirklich arbeiten</h3>
-        <p>Mobile, Desktop oder Web – kleine bis mittlere Apps, die dir Zeit sparen.</p>
-      </article>
-
-      <article class="feature reveal">
-        <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
-        <h3>Digitale Systeme & Ordnung</h3>
-        <p>Workflows, Cloud, Automationen – eine Umgebung, die funktioniert.</p>
-      </article>
-
-      <article class="feature reveal">
-        <div class="feature-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-        <h3>Support ohne Blabla</h3>
-        <p>Einrichtung, Optimierung & technischer Support – klar und verständlich.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-<!-- ===================== PROCESS SECTION ===================== -->
-<section id="process">
-  <div class="wrapper">
-    <div class="section-header reveal">
-      <div>
-        <h2>Wie die Zusammenarbeit abläuft</h2>
-      </div>
-      <p>
-        Kein Agenturtheater – du sprichst direkt mit der Person, die deine App wirklich baut:
-        vom Konzept bis zum Feinschliff.
-      </p>
-    </div>
-
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <div class="process-label">01 · Kennenlernen</div>
-        <h3>Dein Alltag, deine Probleme</h3>
-        <p>Wir schauen uns an, wo du stehst, was fehlt und welche Lösung sinnvoll ist.</p>
-      </div>
-
-      <div class="process-step reveal">
-        <div class="process-label">02 · Konzept & Prototyp</div>
-        <h3>Eine Lösung, die Sinn macht</h3>
-        <p>Du bekommst einen klickbaren Prototypen – damit du sofort siehst, wie es funktioniert.</p>
-      </div>
-
-      <div class="process-step reveal">
-        <div class="process-label">03 · Umsetzung & Feinschliff</div>
-        <h3>Live in deinem Alltag</h3>
-        <p>Wir testen, optimieren und schärfen so lange nach, bis alles perfekt sitzt.</p>
-      </div>
-    </div>
-
-    <!-- CALL TO ACTION -->
-    <div class="cta reveal" style="
-      margin-top: 3.5rem;
-      border-radius: var(--radius-xl);
-      padding: 1.6rem 1.8rem;
-      background: linear-gradient(135deg,
-        rgba(41,224,255,0.22),
-        rgba(195,87,255,0.18),
-        rgba(3,5,18,0.96)
-      );
-      border: 1px solid rgba(41,224,255,0.6);
-      box-shadow: 0 0 45px rgba(41,224,255,0.6);
+    /* HERO SECTION */
+    main { padding-bottom: 5rem; }
+
+    .hero {
+      padding: 3.75rem 0 5.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(41, 224, 255, 0.45);
+      background: radial-gradient(circle at left, rgba(41,224,255,0.25), rgba(5,7,18,0.9));
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .eyebrow i {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      text-wrap: balance;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(120deg, #ffffff, #9af2ff, #e6b5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 34rem;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-sub strong {
+      color: #d5d8ff;
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 1.4rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(6,8,22,0.95);
+    }
+
+    .chip i {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    /* 3D APP SHOWCASE */
+    .hero-visual {
+      position: relative;
+      perspective: 1400px;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40px;
+      border-radius: 40px;
+      border: 1px solid rgba(41, 224, 255, 0.16);
+      background: radial-gradient(circle at top, rgba(41,224,255,0.08), transparent 60%);
+      filter: blur(8px);
+      opacity: 0.7;
+    }
+
+    .app-stack {
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateY(-18deg) rotateX(16deg) translateZ(0);
+      animation: float3d 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes float3d {
+      0% {
+        transform: rotateY(-16deg) rotateX(14deg) translate3d(0, 0, 0);
+      }
+      50% {
+        transform: rotateY(-21deg) rotateX(18deg) translate3d(0, -6px, 14px);
+      }
+      100% {
+        transform: rotateY(-18deg) rotateX(12deg) translate3d(0, 2px, -6px);
+      }
+    }
+
+    .app-card {
+      position: relative;
+      border-radius: 28px;
+      padding: 1.4rem 1.2rem;
+      background: radial-gradient(circle at top left, rgba(41,224,255,0.3), rgba(3,5,18,0.96));
+      border: 1px solid rgba(41,224,255,0.7);
+      box-shadow: var(--shadow-soft), 0 0 45px rgba(41,224,255,0.6);
+      width: 280px;
+      max-width: 100%;
+      transform: translateZ(50px);
+    }
+
+    .app-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 1rem;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .app-card-header span {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      opacity: 0.88;
+    }
+
+    .app-dot-row {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .app-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(6,10,30,0.6);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 0%, var(--accent), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .app-dot.active::after {
+      opacity: 1;
+    }
+
+    .app-phone {
+      border-radius: 20px;
+      background: rgba(4,7,20,0.95);
+      padding: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 22px rgba(0,0,0,0.8);
+    }
+
+    .app-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      opacity: 0.9;
+    }
+
+    .app-ui-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0.7rem;
+      align-items: stretch;
+    }
+
+    .app-list {
+      background: linear-gradient(145deg, rgba(14,22,50,0.9), rgba(5,10,28,0.9));
+      border-radius: 14px;
+      padding: 0.6rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .app-item {
+      border-radius: 10px;
+      padding: 0.38rem 0.45rem;
+      background: rgba(8,14,38,0.95);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      color: var(--muted);
+    }
+
+    .app-item strong {
+      color: #e2f9ff;
+      font-weight: 500;
+    }
+
+    .app-pill {
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(41,224,255,0.7);
+      font-size: 0.56rem;
+      color: #9fefff;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .app-stats {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at 0% 0%, rgba(41,224,255,0.22), rgba(3,5,18,0.95));
+      padding: 0.55rem 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.6rem;
+    }
+
+    .app-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .app-stat-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.55rem;
+      opacity: 0.9;
+    }
+
+    .app-stat-value {
+      font-family: "JetBrains Mono", monospace;
+      color: #e3f7ff;
+    }
+
+    .app-progress {
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .app-progress-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform-origin: left;
+      transform: scaleX(0.78);
+    }
+
+    .app-tagline {
+      margin-top: 0.5rem;
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-align: right;
+      opacity: 0.9;
+    }
+
+    .app-float-card {
+      position: absolute;
+      right: -34px;
+      top: 30%;
+      transform: translateZ(90px);
+      border-radius: 18px;
+      padding: 0.7rem 0.9rem;
+      background: rgba(4,7,22,0.98);
+      border: 1px solid rgba(195,87,255,0.7);
+      box-shadow: 0 0 30px rgba(195,87,255,0.6);
+      font-size: 0.72rem;
+      max-width: 210px;
+      backdrop-filter: blur(16px);
+      animation: floatSide 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSide {
+      0% { transform: translate3d(0,0,90px); }
+      100% { transform: translate3d(0,-10px,90px); }
+    }
+
+    .app-float-card strong {
+      display: block;
+      font-size: 0.76rem;
+      margin-bottom: 0.12rem;
+    }
+
+    .app-float-card span {
+      color: var(--muted);
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+      font-size: 0.66rem;
+      color: #ffe6ff;
+    }
+
+    .app-badge i {
+      color: var(--accent-2);
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       gap: 1.5rem;
+      margin-bottom: 1.8rem;
       flex-wrap: wrap;
-    ">
-      <div>
-        <h2>Bereit für Klarheit statt Chaos?</h2>
-        <p>
-          Erzähl mir kurz, was du brauchst – ich melde mich mit einer ehrlichen Einschätzung
-          und den nächsten Schritten.
-        </p>
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-header p {
+      max-width: 32rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.18rem 0.7rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: rgba(6,9,24,0.94);
+    }
+
+    /* Feature Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature {
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1.3rem;
+      background: linear-gradient(145deg, rgba(8,12,30,0.9), rgba(3,6,18,0.9));
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.75);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(41,224,255,0.12), transparent 65%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      z-index: -1;
+    }
+
+    .feature:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 0 0, rgba(41,224,255,0.4), rgba(10,16,40,0.9));
+      margin-bottom: 0.7rem;
+      color: #e5faff;
+    }
+
+    .feature h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .feature-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.18rem 0.55rem;
+    }
+    /* App Showcase */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .showcase-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .showcase-card {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top left, rgba(41,224,255,0.2), rgba(5,7,18,0.96));
+      padding: 0.8rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      transition: all 0.25s ease;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(41,224,255,0.4);
+      border-color: rgba(41,224,255,0.7);
+    }
+
+    .showcase-card span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: rgba(207,242,255,0.9);
+    }
+
+    .showcase-card strong {
+      font-size: 0.86rem;
+      color: #eafaff;
+    }
+
+    .showcase-card p {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .showcase-badges {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .showcase-badge {
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      color: #d4f5ff;
+      font-size: 0.7rem;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .showcase-copy {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .showcase-copy ul {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .showcase-copy li::before {
+      content: "▹";
+      margin-right: 0.4rem;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    /* PROCESS */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    .process-step {
+      background: rgba(5,8,22,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      font-size: 0.9rem;
+    }
+
+    .process-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.05rem;
+      color: #e9faff;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 3.5rem;
+      padding: 1.7rem 1.6rem;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(41,224,255,0.22), rgba(195,87,255,0.18), rgba(3,5,18,0.96));
+      border: 1px solid rgba(41,224,255,0.6);
+      box-shadow: 0 0 45px rgba(41,224,255,0.65);
+      display: flex;
+      justify-content: space-between;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .cta h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: #e8faff;
+    }
+
+    .cta p {
+      font-size: 0.92rem;
+      color: #d4f9ff;
+      max-width: 28rem;
+    }
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrapper footer-row">
+      <div>© <span id="year"></span> Draftnex Solutions. Alle Rechte vorbehalten.</div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="about.html">Über mich</a>
       </div>
-
-      <a href="contact.html" class="btn btn-primary">
-        <i class="fa-solid fa-paper-plane"></i>
-        Nachricht senden
-      </a>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="wrapper footer-row" style="
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    color: var(--muted);
-    padding: 1.4rem 0 2rem;
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  ">
-    <div>© <span id="year"></span> Draftnex Solutions. Alle Rechte vorbehalten.</div>
+  <script>
+    // Dynamic Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    <div class="footer-links" style="display: flex; gap: 1rem;">
-      <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a>
-      <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
-      <a href="about.html" style="color: var(--muted); text-decoration:none;">Über mich</a>
-    </div>
-  </div>
-</footer>
+    // Mobile Navigation Toggle
+    const navContainer = document.querySelector(".nav");
+    const navToggle = document.querySelector(".nav-toggle");
 
-<!-- ===================== JAVASCRIPT ===================== -->
-<script>
-// Jahr automatisch setzen
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Mobile Navigation
-const nav = document.querySelector(".nav");
-const navToggle = document.querySelector(".nav-toggle");
-
-if (navToggle) {
-  navToggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    navToggle.innerHTML = nav.classList.contains("open")
-      ? '<i class="fa-solid fa-xmark"></i>'
-      : '<i class="fa-solid fa-bars"></i>';
-  });
-}
-
-// Scroll Reveal
-const revealElements = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
+    navToggle.addEventListener("click", () => {
+      navContainer.classList.toggle("open");
+      navToggle.innerHTML = navContainer.classList.contains("open")
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
     });
-  },
-  { threshold: 0.15 }
-);
-revealElements.forEach(el => revealObserver.observe(el));
 
-// Parallax
-const parallaxElements = document.querySelectorAll("[data-parallax]");
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  parallaxElements.forEach(el => {
-    const speed = parseFloat(el.dataset.parallax) || 0.1;
-    el.style.transform = `translateY(${scrollY * speed * -1}px)`;
-  });
-});
-</script>
+    // Scroll Reveal
+    const revealEls = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Parallax Effect
+    const parallaxEls = document.querySelectorAll("[data-parallax]");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      parallaxEls.forEach((el) => {
+        const speed = parseFloat(el.dataset.parallax) || 0.1;
+        el.style.transform = `translateY(${scrollY * speed * -1}px)`;
+      });
+    });
+  </script>
 
 </body>
 </html>
