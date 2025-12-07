@@ -1183,54 +1183,44 @@
   </footer>
 
   <script>
-    // Header aus nav.html laden
-    fetch("nav.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("site-header").innerHTML = html;
+  // Navigation dynamisch laden
+  fetch("nav.html")
+    .then(res => res.text())
+    .then(html => {
+      // HTML der Navigation einfügen
+      document.getElementById("site-header").innerHTML = html;
 
-        const navContainer = document.querySelector(".nav");
-        const navToggle = document.querySelector(".nav-toggle");
+      // Elemente im geladenen nav.html holen
+      const navContainer = document.querySelector(".nav");
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
 
-        if (navToggle && navContainer) {
-          navToggle.addEventListener("click", () => {
-            navContainer.classList.toggle("open");
-            navToggle.innerHTML = navContainer.classList.contains("open")
-              ? '<i class="fa-solid fa-xmark"></i>'
-              : '<i class="fa-solid fa-bars"></i>';
-          });
-        }
-      });
+      // Burger-Button klickbar machen
+      if (navToggle && navContainer) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navContainer.classList.toggle("open");
 
-    // Dynamische Jahreszahl
-    document.getElementById("year").textContent = new Date().getFullYear();
+          navToggle.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
 
-    // Scroll reveal
-    const revealEls = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
+      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
+      mobilePanelLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (!navContainer) return;
+
+          navContainer.classList.remove("open");
+
+          if (navToggle) {
+            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
           }
         });
-      },
-      { threshold: 0.14 }
-    );
-
-    revealEls.forEach((el) => observer.observe(el));
-
-    // Parallax
-    const parallaxEls = document.querySelectorAll("[data-parallax]");
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-      parallaxEls.forEach((el) => {
-        const speed = parseFloat(el.dataset.parallax) || 0.1;
-        el.style.transform = `translateY(${scrollY * speed * -1}px)`;
       });
     });
-  </script>
+</script>
+
 
 </body>
 </html>
