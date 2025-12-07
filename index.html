@@ -1050,8 +1050,7 @@
   </script>
 
   <header id="site-header"></header>
-</body>
-
+  
   <main>
     <!-- HERO -->
     <section class="hero" id="hero">
@@ -1403,17 +1402,6 @@
     // Dynamische Jahreszahl
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile Navigation toggle
-    const navContainer = document.querySelector(".nav");
-    const navToggle = document.querySelector(".nav-toggle");
-
-    navToggle.addEventListener("click", () => {
-      navContainer.classList.toggle("open");
-      navToggle.innerHTML = navContainer.classList.contains("open")
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
-    });
-
     // Scroll reveal
     const revealEls = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -1440,6 +1428,7 @@
       });
     });
   </script>
+
 
 </body>
 </html>
