@@ -208,4 +208,56 @@ nav a:hover::after {
     display: none;
   }
 }
+/* --- MOBILE SLIDE MENU --- */
+@media (max-width: 820px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Menü schließt sich */
+  .nav nav ul,
+  .nav .nav-cta {
+    display: none;
+  }
+
+  /* Die Slide-Panel-Bühne */
+  .mobile-panel {
+    position: fixed;
+    top: 0;
+    right: -320px; /* Start: unsichtbar rechts */
+    width: 260px;
+    height: 100vh;
+    padding: 2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    background: rgba(7, 10, 24, 0.92);
+    backdrop-filter: blur(18px);
+    border-left: 1px solid rgba(255,255,255,0.08);
+
+    transition: right 0.35s ease;
+    z-index: 999;
+  }
+
+  /* Wenn .nav.open → reinsliden */
+  .nav.open .mobile-panel {
+    right: 0;
+  }
+
+  /* Links im Panel */
+  .mobile-panel a {
+    font-size: 1.05rem;
+    color: var(--fg);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mobile-panel a:hover {
+    color: var(--accent);
+  }
+}
 
