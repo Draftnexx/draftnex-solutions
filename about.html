@@ -268,24 +268,30 @@
 </head>
 
 <body>
+<body>
 
-<header>
-  <div class="wrapper nav">
-    <div class="brand">
-      <div class="brand-mark">DX</div>
-      <span>Draftnex Solutions</span>
-    </div>
+<script>
+  fetch("nav.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Start</a></li>
-        <li><a href="services.html">Leistungen</a></li>
-        <li><a href="about.html" style="color: var(--fg);">Über mich</a></li>
-        <li><a href="contact.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      const navContainer = document.querySelector(".nav");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (navToggle) {
+        navToggle.addEventListener("click", () => {
+          navContainer.classList.toggle("open");
+          navToggle.innerHTML = navContainer.classList.contains("open")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
+    });
+</script>
+
+<header id="site-header"></header>
+
 
 <section class="hero">
   <h1>Über mich</h1>
