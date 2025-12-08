@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Seite nicht gefunden | Draftnex Solutions</title>
+  <meta name="description" content="Die angeforderte Seite wurde nicht gefunden." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Gemeinsamer Header / Navigation -->
+  <link rel="stylesheet" href="nav.css" />
+
+  <!-- Smooth Page Transitions -->
+  <link rel="stylesheet" href="transitions.css" />
+
+  <style>
+    :root {
+      --bg: #050712;
+      --fg: #f5f7ff;
+      --muted: #9da3c6;
+      --accent: #29e0ff;
+      --accent-2: #c357ff;
+      --border: rgba(255,255,255,0.1);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --glow: 0 0 30px rgba(41,224,255,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0f1227 0%, #050712 70%);
+      color: var(--fg);
+      font-family: "Space Grotesk", sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Animated background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40vh -40vw;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(41,224,255,0.18), transparent 55%),
+        radial-gradient(circle at 75% 20%, rgba(195,87,255,0.18), transparent 55%),
+        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.15), transparent 55%);
+      filter: blur(10px);
+      z-index: -1;
+      opacity: .65;
+      animation: floatBg 18s infinite ease-in-out alternate;
+    }
+
+    @keyframes floatBg {
+      0% { transform: translate3d(-20px, -20px, 0); }
+      100% { transform: translate3d(20px, 30px, 0); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: .8rem 0;
+      backdrop-filter: blur(18px);
+      background: rgba(3,5,18,.85);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 20;
+    }
+
+    .wrapper {
+      width: min(900px, 90%);
+      margin: 0 auto;
+    }
+
+    /* 404 Content */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+
+    .error-container {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .error-code {
+      font-size: clamp(5rem, 15vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(120deg, #29e0ff, #c357ff, #29e0ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient 3s ease infinite;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 80px rgba(41,224,255,0.5);
+    }
+
+    @keyframes gradient {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+
+    .error-title {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: .7rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .9rem;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      box-shadow: 0 0 0 rgba(41,224,255,0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(41,224,255,0.6), 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(8,12,30,.95);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(41,224,255,0.1);
+      box-shadow: 0 0 20px rgba(41,224,255,0.3), 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Helpful Links */
+    .helpful-links {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .helpful-links h3 {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .link-card {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(7,10,26,.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: .25s;
+      text-decoration: none;
+      color: var(--fg);
+      display: block;
+    }
+
+    .link-card:hover {
+      background: rgba(41,224,255,0.1);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .link-card i {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .link-card strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1.4rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header wird aus nav.html geladen -->
+  <header id="site-header"></header>
+
+<script>
+  // Navigation dynamisch laden
+  fetch("nav.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("site-header").innerHTML = html;
+
+      const navContainer = document.querySelector(".nav");
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
+
+      if (navToggle && navContainer) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navContainer.classList.toggle("open");
+          navToggle.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
+
+      mobilePanelLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (!navContainer) return;
+          navContainer.classList.remove("open");
+          if (navToggle) {
+            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+        });
+      });
+    });
+</script>
+
+  <main>
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Seite nicht gefunden</h1>
+      <p class="error-message">
+        Die von dir angeforderte Seite existiert nicht oder wurde verschoben.
+        <br>
+        Kein Problem – hier sind einige hilfreiche Links.
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fa-solid fa-home"></i>
+          Zur Startseite
+        </a>
+        <a href="contact.html" class="btn btn-ghost">
+          <i class="fa-solid fa-paper-plane"></i>
+          Kontakt
+        </a>
+      </div>
+
+      <div class="helpful-links">
+        <h3>Beliebte Seiten</h3>
+        <div class="link-grid">
+          <a href="services.html" class="link-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <strong>Leistungen</strong>
+          </a>
+          <a href="about.html" class="link-card">
+            <i class="fa-solid fa-user"></i>
+            <strong>Über mich</strong>
+          </a>
+          <a href="index.html#showcase" class="link-card">
+            <i class="fa-solid fa-rocket"></i>
+            <strong>App-Showcase</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
+    <br />
+    <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a> ·
+    <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="transitions.js"></script>
+
+</body>
+</html>

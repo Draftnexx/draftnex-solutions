@@ -2,14 +2,34 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Über mich – Draftnex Solutions</title>
+  <meta name="description" content="Maxx – Entwickler, Systembauer und Problemlöser. Ich baue Apps und digitale Systeme, die deinen Alltag leichter machen. Ehrlich, direkt, ohne Buzzwords." />
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="Entwickler, App-Entwicklung, digitale Ordnung, Automationen, Effizienz, individuelle Software" />
+  <meta name="author" content="Draftnex Solutions" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://draftnex-solutions.de/about.html" />
+  <meta property="og:title" content="Über mich – Draftnex Solutions" />
+  <meta property="og:description" content="Entwickler, Systembauer und Problemlöser. Apps und digitale Systeme, die deinen Alltag leichter machen." />
+  <meta property="og:image" content="https://draftnex-solutions.de/buiswebsite.png" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Gemeinsamer Header / Navigation -->
+  <link rel="stylesheet" href="nav.css" />
+
+  <!-- Smooth Page Transitions -->
+  <link rel="stylesheet" href="transitions.css" />
 
   <!-- Navigation -->
   <link rel="stylesheet" href="nav.css" />
@@ -279,6 +299,27 @@
       border-color: var(--accent);
     }
 
+    /* BUTTON */
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      border-color: var(--accent);
+      box-shadow: 0 0 28px rgba(41,224,255,0.5);
+    }
+
     /* FOOTER */
     footer {
       margin-top: 3rem;
@@ -453,6 +494,9 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="transitions.js"></script>
 
 </body>
 </html>

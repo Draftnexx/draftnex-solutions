@@ -2,14 +2,34 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leistungen – Draftnex Solutions</title>
+  <meta name="description" content="App-Entwicklung, digitale Systeme & IT-Support: Android Apps, Desktop-Software, Web-Apps, Automationen, Cloud-Lösungen und technische Einrichtung." />
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="App-Entwicklung, Mobile Apps, Desktop Apps, Web Apps, digitale Systeme, Automation, IT-Support, Cloud, Notion, KI-Workflows" />
+  <meta name="author" content="Draftnex Solutions" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://draftnex-solutions.de/services.html" />
+  <meta property="og:title" content="Leistungen – Draftnex Solutions" />
+  <meta property="og:description" content="App-Entwicklung, digitale Systeme & IT-Support für Selbstständige und kleine Unternehmen." />
+  <meta property="og:image" content="https://draftnex-solutions.de/buiswebsite.png" />
 
   <!--Google Fonts-->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Gemeinsamer Header / Navigation -->
+  <link rel="stylesheet" href="nav.css" />
+
+  <!-- Smooth Page Transitions -->
+  <link rel="stylesheet" href="transitions.css" />
 
   <!-- Navigation -->
   <link rel="stylesheet" href="nav.css" />
@@ -265,6 +285,8 @@
       // Elemente im geladenen nav.html holen
       const navContainer = document.querySelector(".nav");
       const navToggle = document.querySelector(".nav-toggle");
+      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
+
       const mobileBackdrop = document.querySelector(".mobile-backdrop");
       const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
 
@@ -288,6 +310,17 @@
         });
       }
 
+      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
+      mobilePanelLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (!navContainer) return;
+
+          navContainer.classList.remove("open");
+
+          if (navToggle) {
+            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+        });
       // Backdrop schließt das Menü
       if (mobileBackdrop) {
         mobileBackdrop.addEventListener("click", closeMenu);
@@ -463,6 +496,9 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="transitions.js"></script>
 
 </body>
 </html>

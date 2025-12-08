@@ -2,9 +2,30 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Draftnex Solutions – Apps, Systeme, digitale Effizienz</title>
   <meta name="description" content="Draftnex Solutions entwickelt Apps, digitale Systeme und Automationen für Selbstständige, kleine Unternehmen und Privatkunden. Technik, die für dich arbeitet." />
+
+  <!-- SEO & Social Media Meta Tags -->
+  <meta name="keywords" content="App-Entwicklung, digitale Systeme, Automation, Android Apps, Desktop Apps, Web Apps, Selbstständige, kleine Unternehmen" />
+  <meta name="author" content="Draftnex Solutions" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://draftnex-solutions.de/" />
+  <meta property="og:title" content="Draftnex Solutions – Apps, Systeme, digitale Effizienz" />
+  <meta property="og:description" content="Individuelle Apps und digitale Systeme für Selbstständige, kleine Unternehmen und Privatkunden. Technik, die für dich arbeitet." />
+  <meta property="og:image" content="https://draftnex-solutions.de/buiswebsite.png" />
+  <meta property="og:locale" content="de_DE" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://draftnex-solutions.de/" />
+  <meta name="twitter:title" content="Draftnex Solutions – Apps, Systeme, digitale Effizienz" />
+  <meta name="twitter:description" content="Individuelle Apps und digitale Systeme für Selbstständige, kleine Unternehmen und Privatkunden." />
+  <meta name="twitter:image" content="https://draftnex-solutions.de/buiswebsite.png" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -14,6 +35,9 @@
 
   <!-- Gemeinsamer Header / Navigation -->
   <link rel="stylesheet" href="nav.css" />
+
+  <!-- Smooth Page Transitions -->
+  <link rel="stylesheet" href="transitions.css" />
 
   <style>
     :root {
@@ -205,6 +229,48 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      transition: var(--transition-med);
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      box-shadow: 0 0 0 rgba(41,224,255,0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(41,224,255,0.6), 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(8,12,30,.95);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(41,224,255,0.1);
+      box-shadow: 0 0 20px rgba(41,224,255,0.3), 0 8px 20px rgba(0,0,0,0.4);
     }
 
     /* 3D App Showcase */
@@ -1120,7 +1186,7 @@
             </article>
 
             <article class="showcase-card reveal">
-              <span>Produktivity Suite</span>
+              <span>Productivity Suite</span>
               <strong>Dein Arbeits-Cockpit</strong>
               <p>
                 Tagesfokus, To-dos, Deadlines, Status – alles in einem klaren Interface.
@@ -1228,8 +1294,32 @@
     </div>
   </footer>
 
-  
+  <script>
+    // Jahr dynamisch setzen
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Reveal Animationen mit Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+  </script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="transitions.js"></script>
 
 </body>
 </html>
