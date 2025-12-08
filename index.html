@@ -15,6 +15,9 @@
   <!-- Gemeinsamer Header / Navigation -->
   <link rel="stylesheet" href="nav.css" />
 
+  <!-- Smooth Page Transitions -->
+  <link rel="stylesheet" href="transitions.css" />
+
   <style>
     :root {
       --bg: #050712;
@@ -205,6 +208,48 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      transition: var(--transition-med);
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-primary {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      box-shadow: 0 0 0 rgba(41,224,255,0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(41,224,255,0.6), 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(8,12,30,.95);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(41,224,255,0.1);
+      box-shadow: 0 0 20px rgba(41,224,255,0.3), 0 8px 20px rgba(0,0,0,0.4);
     }
 
     /* 3D App Showcase */
@@ -1244,6 +1289,9 @@
       revealObserver.observe(el);
     });
   </script>
+
+  <!-- Smooth Page Transitions -->
+  <script src="transitions.js"></script>
 
 </body>
 </html>
