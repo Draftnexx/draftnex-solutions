@@ -11,6 +11,9 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+  <!-- Gemeinsamer Header / Navigation -->
+  <link rel="stylesheet" href="nav.css" />
+
   <style>
     :root {
       --bg: #050712;
@@ -243,6 +246,27 @@
       border-color: var(--accent);
     }
 
+    /* BUTTON */
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(10,15,30,.9);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      border-color: var(--accent);
+      box-shadow: 0 0 28px rgba(41,224,255,0.5);
+    }
+
     /* FOOTER */
     footer {
       margin-top: 3rem;
@@ -290,8 +314,6 @@
 </script>
 
 <header id="site-header"></header>
-
-<link rel="stylesheet" href="nav.css">
 
 <section class="hero">
   <h1>Über mich</h1>
