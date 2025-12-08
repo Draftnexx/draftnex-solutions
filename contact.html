@@ -11,6 +11,9 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+  <!-- Navigation -->
+  <link rel="stylesheet" href="nav.css" />
+
   <style>
     :root {
       --bg: #050712;
@@ -115,6 +118,39 @@
       color: var(--fg);
     }
 
+    /* Buttons */
+    .btn {
+      padding: .5rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      transition: 240ms ease-out;
+    }
+
+    .btn-primary {
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
+      box-shadow: 0 0 0 rgba(41,224,255,0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(41,224,255,0.6);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(10, 15, 30, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
     h1 {
       font-size: 2.3rem;
       background: linear-gradient(120deg, #fff, #b7f7ff, #e6c0ff);
@@ -216,27 +252,55 @@
   </style>
 </head>
 
-  <link rel="stylesheet" href="nav.css">
-
 <body>
-  <!-- Navigation -->
-  <header>
-    <div class="wrapper nav">
-      <div class="brand">
-        <div class="brand-mark">DX</div>
-        <span>Draftnex Solutions</span>
-      </div>
+  <!-- Header wird aus nav.html geladen -->
+  <header id="site-header"></header>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Start</a></li>
-          <li><a href="services.html">Leistungen</a></li>
-          <li><a href="about.html">Über mich</a></li>
-          <li><a href="contact.html" style="color: var(--fg);">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<script>
+  // Navigation dynamisch laden
+  fetch("nav.html")
+    .then(res => res.text())
+    .then(html => {
+      // HTML der Navigation einfügen
+      document.getElementById("site-header").innerHTML = html;
+
+      // Elemente im geladenen nav.html holen
+      const navContainer = document.querySelector(".nav");
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobileBackdrop = document.querySelector(".mobile-backdrop");
+      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
+
+      // Funktion zum Schließen des Menüs
+      const closeMenu = () => {
+        if (!navContainer) return;
+        navContainer.classList.remove("open");
+        if (navToggle) {
+          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+      };
+
+      // Burger-Button klickbar machen
+      if (navToggle && navContainer) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navContainer.classList.toggle("open");
+
+          navToggle.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+      }
+
+      // Backdrop schließt das Menü
+      if (mobileBackdrop) {
+        mobileBackdrop.addEventListener("click", closeMenu);
+      }
+
+      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
+      mobilePanelLinks.forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
+    });
+</script>
 
   <main class="wrapper">
 
