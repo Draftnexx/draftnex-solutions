@@ -912,7 +912,17 @@
       // Elemente im geladenen nav.html holen
       const navContainer = document.querySelector(".nav");
       const navToggle = document.querySelector(".nav-toggle");
+      const mobileBackdrop = document.querySelector(".mobile-backdrop");
       const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
+
+      // Funktion zum Schließen des Menüs
+      const closeMenu = () => {
+        if (!navContainer) return;
+        navContainer.classList.remove("open");
+        if (navToggle) {
+          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+      };
 
       // Burger-Button klickbar machen
       if (navToggle && navContainer) {
@@ -925,17 +935,14 @@
         });
       }
 
+      // Backdrop schließt das Menü
+      if (mobileBackdrop) {
+        mobileBackdrop.addEventListener("click", closeMenu);
+      }
+
       // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
       mobilePanelLinks.forEach(link => {
-        link.addEventListener("click", () => {
-          if (!navContainer) return;
-
-          navContainer.classList.remove("open");
-
-          if (navToggle) {
-            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-          }
-        });
+        link.addEventListener("click", closeMenu);
       });
     });
 </script>
