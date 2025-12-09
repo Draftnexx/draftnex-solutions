@@ -202,23 +202,24 @@
 }
 
 /* ============================================
-   7. MOBILE PANEL
+   7. MOBILE PANEL (LINKSBÜNDIG)
    ============================================ */
 .mobile-panel {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0; /* CHANGED: Von right zu left */
   width: 100%;
   max-width: 320px;
   height: 100vh;
   background: rgba(5, 7, 18, 0.98);
   backdrop-filter: blur(24px);
-  border-left: 1px solid var(--color-border-default, rgba(255, 255, 255, 0.12));
-  transform: translateX(100%);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid var(--color-border-default, rgba(255, 255, 255, 0.12)); /* CHANGED: border-left → border-right */
+  transform: translateX(-100%); /* CHANGED: Von 100% zu -100% */
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: calc(var(--z-fixed, 1030) - 1);
   overflow-y: auto;
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.6); /* CHANGED: Von -8px zu 8px */
 }
 
 .nav.open .mobile-panel {
@@ -228,16 +229,19 @@
 .mobile-panel-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm, 0.5rem);
+  gap: var(--space-xs, 0.25rem); /* Reduced gap */
   padding: calc(var(--header-height, 80px) + var(--space-xl, 2rem)) var(--space-xl, 2rem) var(--space-xl, 2rem);
+  align-items: flex-start; /* Left-aligned */
 }
 
 .mobile-panel .nav-link {
   display: flex;
   align-items: center;
+  justify-content: flex-start; /* Left-aligned */
   gap: var(--space-md, 1rem);
-  padding: var(--space-md, 1rem);
-  font-size: var(--font-size-lg, 1.125rem);
+  padding: var(--space-md, 1rem) var(--space-lg, 1.5rem);
+  width: 100%; /* Full width */
+  font-size: var(--font-size-base, 1rem); /* Reduced from lg */
   font-weight: var(--font-weight-medium, 500);
   color: var(--color-text-secondary, #c5cae9);
   text-decoration: none;
@@ -245,7 +249,8 @@
   transition: all var(--transition-fast, 150ms ease);
   position: relative;
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(-20px);
+  text-align: left; /* Left-aligned text */
 }
 
 .mobile-panel .nav-link::after {
@@ -280,25 +285,28 @@
 }
 
 .mobile-panel .nav-link:hover {
-  background: var(--color-accent-soft, rgba(41, 224, 255, 0.16));
+  background: var(--color-accent-soft, rgba(0, 201, 255, 0.12));
   color: var(--color-text-primary, #f5f7ff);
 }
 
 .mobile-panel .nav-link.active {
-  background: var(--color-accent-soft, rgba(41, 224, 255, 0.16));
-  color: var(--color-primary, #29e0ff);
+  background: var(--color-accent-soft, rgba(0, 201, 255, 0.12));
+  color: var(--color-primary, #00c9ff);
+  font-weight: var(--font-weight-semibold, 600);
 }
 
 .mobile-panel .nav-link i {
-  font-size: var(--font-size-xl, 1.25rem);
+  font-size: var(--font-size-lg, 1.125rem);
   width: 24px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .mobile-panel-divider {
   height: 1px;
   background: var(--color-border-subtle, rgba(255, 255, 255, 0.06));
   margin: var(--space-lg, 1.5rem) 0;
+  width: 100%;
 }
 
 .mobile-panel .btn {
@@ -306,7 +314,7 @@
   justify-content: center;
   margin-top: var(--space-md, 1rem);
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(-20px);
   transition: all var(--transition-fast, 150ms ease);
 }
 
