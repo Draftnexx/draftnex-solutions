@@ -18,6 +18,7 @@
           header.innerHTML = html;
           setupMobileMenu();
           setupActiveLinks();
+          setupSlidingIndicator();
           setupScrollHeader();
         }
       })
@@ -105,6 +106,60 @@
           (currentPage === 'index.html' && href === 'index.html')) {
         link.classList.add('active');
       }
+    });
+  }
+
+  // Innovative Sliding Active Indicator (like Vercel/Linear)
+  function setupSlidingIndicator() {
+    const desktopNav = document.querySelector('.desktop-nav');
+    if (!desktopNav) return;
+
+    // Create sliding indicator element
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-active-indicator';
+    desktopNav.appendChild(indicator);
+
+    const navLinks = desktopNav.querySelectorAll('.nav-link');
+    const activeLink = desktopNav.querySelector('.nav-link.active');
+
+    // Function to move indicator
+    function moveIndicator(link) {
+      if (!link) {
+        indicator.classList.remove('visible');
+        return;
+      }
+
+      const linkRect = link.getBoundingClientRect();
+      const navRect = desktopNav.getBoundingClientRect();
+
+      indicator.style.width = `${linkRect.width}px`;
+      indicator.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
+      indicator.classList.add('visible');
+    }
+
+    // Initialize with active link
+    if (activeLink) {
+      // Small delay to ensure layout is ready
+      setTimeout(() => moveIndicator(activeLink), 100);
+    }
+
+    // Move indicator on hover
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => moveIndicator(link));
+
+      link.addEventListener('mouseleave', () => {
+        // Return to active link when hover ends
+        moveIndicator(activeLink);
+      });
+    });
+
+    // Update indicator position on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (activeLink) moveIndicator(activeLink);
+      }, 150);
     });
   }
 
