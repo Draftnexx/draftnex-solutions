@@ -31,24 +31,39 @@
   pointer-events: none;
 }
 
-/* Primary Button */
+/* Primary Button - Professional Gradient */
 .btn-primary {
-  color: var(--color-bg-primary);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   border-color: transparent;
-  box-shadow: var(--glow-primary-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-secondary-light) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--glow-primary-md), var(--shadow-lg);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 201, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
 }
 
 .btn-primary:active {
   transform: translateY(0);
 }
 
-/* Secondary Button */
+/* Secondary Button - Subtle Professional */
 .btn-secondary {
   color: var(--color-text-primary);
   background: var(--color-bg-elevated);
@@ -56,14 +71,14 @@
 }
 
 .btn-secondary:hover {
-  background: var(--color-bg-tertiary);
+  background: var(--color-bg-card);
   border-color: var(--color-primary);
-  box-shadow: var(--glow-primary-sm);
+  color: var(--color-primary);
 }
 
-/* Ghost Button */
+/* Ghost Button - Clean & Minimal */
 .btn-ghost {
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   background: transparent;
   border-color: var(--color-border-default);
 }
@@ -74,7 +89,7 @@
   color: var(--color-primary);
 }
 
-/* Outline Button */
+/* Outline Button - Elegant */
 .btn-outline {
   color: var(--color-primary);
   background: transparent;
@@ -83,8 +98,8 @@
 
 .btn-outline:hover {
   background: var(--color-primary);
-  color: var(--color-bg-primary);
-  box-shadow: var(--glow-primary-sm);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 201, 255, 0.15);
 }
 
 /* Button Sizes */
