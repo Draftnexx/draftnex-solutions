@@ -1,0 +1,15 @@
+# Robots.txt for Draftnex Solutions
+# Allow all crawlers to access all pages
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://draftnex-solutions.de/sitemap.xml
+
+# Crawl-delay (optional, only if needed to prevent server overload)
+# Crawl-delay: 1
+
+# Disallow crawling of specific files if needed
+# User-agent: *
+# Disallow: /assets/

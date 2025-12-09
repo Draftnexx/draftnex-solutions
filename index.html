@@ -33,11 +33,15 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Gemeinsamer Header / Navigation -->
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+
+  <!-- Navigation -->
   <link rel="stylesheet" href="nav.css" />
 
-  <!-- Smooth Page Transitions -->
-  <link rel="stylesheet" href="transitions.css" />
+  <!-- Page Transitions -->
+  <link rel="stylesheet" href="assets/css/transitions.css" />
 
   <style>
     :root {
@@ -76,6 +80,7 @@
     body {
       position: relative;
       overflow-x: hidden;
+      padding-top: var(--header-height, 80px);
     }
 
     /* Animated background gradient layer */
@@ -1278,7 +1283,7 @@
 
   <footer>
     <div class="wrapper footer-row">
-      <div>© <span id="year"></span> Draftnex Solutions. Alle Rechte vorbehalten.</div>
+      <div>© <span id="current-year"></span> Draftnex Solutions. Alle Rechte vorbehalten.</div>
       <div class="footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -1287,32 +1292,8 @@
     </div>
   </footer>
 
-  <script>
-    // Jahr dynamisch setzen
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Reveal Animationen mit Intersection Observer
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => {
-      revealObserver.observe(el);
-    });
-  </script>
-
-  <!-- Smooth Page Transitions -->
-  <script src="transitions.js"></script>
+  <!-- Main JavaScript -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>

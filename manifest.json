@@ -1,0 +1,40 @@
+{
+  "name": "Draftnex Solutions",
+  "short_name": "Draftnex",
+  "description": "Apps, Systeme und Automationen für Selbstständige, kleine Unternehmen und Privatkunden. Technik, die für dich arbeitet.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050712",
+  "theme_color": "#29e0ff",
+  "orientation": "any",
+  "lang": "de",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "draftnex-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "buiswebsite.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Draftnex Solutions Homepage"
+    }
+  ]
+}

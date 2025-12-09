@@ -1,174 +1,373 @@
-/* ---------------------------------------
-   GLOBAL NAVIGATION WRAPPER
----------------------------------------- */
+/* ============================================
+   DRAFTNEX SOLUTIONS - NAVIGATION
+   ============================================ */
+
+/* ============================================
+   1. MAIN NAVIGATION CONTAINER
+   ============================================ */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed, 1030);
+  background: rgba(5, 7, 18, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-subtle, rgba(255, 255, 255, 0.06));
+  transition: all var(--transition-base, 250ms ease);
+}
+
+#site-header.scrolled {
+  background: rgba(5, 7, 18, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom-color: var(--color-border-default, rgba(255, 255, 255, 0.12));
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 0;
   position: relative;
 }
 
-/* Branding */
+.nav-container {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  padding: 0 var(--space-xl, 2rem);
+  height: var(--header-height, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl, 2rem);
+}
+
+/* ============================================
+   2. BRAND / LOGO
+   ============================================ */
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-md, 1rem);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--transition-fast, 150ms ease);
+  flex-shrink: 0;
+}
+
+.brand:hover {
+  opacity: 0.9;
 }
 
 .brand-logo {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(41, 224, 255, 0.45));
+  filter: drop-shadow(0 0 8px rgba(41, 224, 255, 0.25));
+  transition: filter var(--transition-base, 250ms ease);
+}
+
+.brand:hover .brand-logo {
+  filter: drop-shadow(0 0 12px rgba(41, 224, 255, 0.4));
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
+  gap: 0.15rem;
 }
 
 .brand-title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-bold, 700);
+  letter-spacing: var(--letter-spacing-wide, 0.06em);
   text-transform: uppercase;
+  color: var(--color-text-primary, #f5f7ff);
+  line-height: 1;
 }
 
 .brand-subtitle {
-  font-size: 0.75rem;
-  opacity: 0.7;
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-text-muted, #9da3c6);
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
-/* ---------------------------------------
-   DESKTOP NAVIGATION
----------------------------------------- */
+/* ============================================
+   3. DESKTOP NAVIGATION
+   ============================================ */
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-lg, 1.5rem);
 }
 
-nav.desktop-nav ul {
+.desktop-nav .nav-link {
+  /* Styles from components.css are applied */
+  padding: var(--space-sm, 0.5rem) 0;
+}
+
+/* ============================================
+   4. CTA BUTTONS
+   ============================================ */
+.nav-cta {
   display: flex;
-  list-style: none;
-  gap: 1.2rem;
+  align-items: center;
+  gap: var(--space-md, 1rem);
+  margin-left: auto;
 }
 
-nav.desktop-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  position: relative;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.1rem;
-  transition: color 0.2s ease;
+.nav-cta .btn {
+  white-space: nowrap;
 }
 
-nav.desktop-nav a:hover {
-  color: var(--fg);
-}
-
-nav.desktop-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  border-radius: 999px;
-  transition: width 0.2s ease;
-}
-
-nav.desktop-nav a:hover::after {
-  width: 100%;
-}
-
-/* CTA Buttons */
-.nav-cta a {
-  text-decoration: none;
-  font-size: 0.83rem;
-}
-
-/* ---------------------------------------
-   BURGER BUTTON
----------------------------------------- */
+/* ============================================
+   5. MOBILE TOGGLE BUTTON
+   ============================================ */
 .nav-toggle {
   display: none;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(7, 10, 24, 0.95);
-  border-radius: 999px;
-  width: 38px;
-  height: 38px;
   align-items: center;
   justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--color-bg-elevated, rgba(10, 13, 30, 0.95));
+  border: 1px solid var(--color-border-default, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-md, 10px);
   cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease);
+  position: relative;
+  z-index: var(--z-fixed, 1030);
 }
 
-.nav-toggle i {
-  font-size: 1rem;
-  color: var(--fg);
+.nav-toggle:hover {
+  background: var(--color-bg-tertiary, #0a0e2b);
+  border-color: var(--color-primary, #29e0ff);
+  box-shadow: var(--glow-primary-sm, 0 0 10px rgba(41, 224, 255, 0.2));
 }
 
-/* ---------------------------------------
-   MOBILE PANEL (SLIDE IN)
----------------------------------------- */
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-primary, #29e0ff);
+  outline-offset: 2px;
+}
+
+/* Burger icon (3 lines) */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 20px;
+}
+
+.burger-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text-primary, #f5f7ff);
+  border-radius: 2px;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+/* Transform to X when open */
+.nav.open .burger-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav.open .burger-icon span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav.open .burger-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ============================================
+   6. MOBILE PANEL
+   ============================================ */
 .mobile-panel {
   position: fixed;
   top: 0;
-  right: -340px;                /* versteckt */
-  width: 300px;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
   height: 100vh;
-  padding: 2rem 1.5rem;
+  background: rgba(5, 7, 18, 0.98);
+  backdrop-filter: blur(24px);
+  border-left: 1px solid var(--color-border-default, rgba(255, 255, 255, 0.12));
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: calc(var(--z-fixed, 1030) - 1);
+  overflow-y: auto;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+}
 
+.nav.open .mobile-panel {
+  transform: translateX(0);
+}
+
+.mobile-panel-content {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-
-  background: rgba(8, 12, 30, 0.85);
-  backdrop-filter: blur(24px);
-  border-left: 1px solid rgba(255,255,255,0.08);
-
-  transition: right 0.35s cubic-bezier(.23,1,.32,1);
-  z-index: 999;
+  gap: var(--space-sm, 0.5rem);
+  padding: calc(var(--header-height, 80px) + var(--space-xl, 2rem)) var(--space-xl, 2rem) var(--space-xl, 2rem);
 }
 
-.mobile-panel a {
-  color: var(--fg);
+.mobile-panel .nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md, 1rem);
+  padding: var(--space-md, 1rem);
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-text-secondary, #c5cae9);
   text-decoration: none;
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  padding: 0.55rem 0.3rem;
-  border-radius: 10px;
-  transition: background 0.2s ease;
+  border-radius: var(--radius-md, 10px);
+  transition: all var(--transition-fast, 150ms ease);
+  position: relative;
 }
 
-.mobile-panel a:hover {
-  background: rgba(255,255,255,0.08);
+.mobile-panel .nav-link::after {
+  display: none; /* Remove underline animation for mobile */
 }
 
-/* Button-Styles im Panel übernehmen das große Design */
-.mobile-panel .btn-ghost,
-.mobile-panel .btn-primary {
-  font-size: 0.85rem;
-  padding: 0.55rem 0.9rem;
+.mobile-panel .nav-link:hover {
+  background: var(--color-accent-soft, rgba(41, 224, 255, 0.16));
+  color: var(--color-text-primary, #f5f7ff);
 }
 
-/* Slide-in Zustand */
-.nav.open .mobile-panel {
+.mobile-panel .nav-link.active {
+  background: var(--color-accent-soft, rgba(41, 224, 255, 0.16));
+  color: var(--color-primary, #29e0ff);
+}
+
+.mobile-panel .nav-link i {
+  font-size: var(--font-size-xl, 1.25rem);
+  width: 24px;
+  text-align: center;
+}
+
+.mobile-panel-divider {
+  height: 1px;
+  background: var(--color-border-subtle, rgba(255, 255, 255, 0.06));
+  margin: var(--space-lg, 1.5rem) 0;
+}
+
+.mobile-panel .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-md, 1rem);
+}
+
+/* Mobile panel backdrop */
+.nav.open::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
   right: 0;
+  bottom: 0;
+  background: rgba(5, 7, 18, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: calc(var(--z-fixed, 1030) - 2);
+  animation: fadeIn 0.3s ease;
 }
 
-/* ---------------------------------------
-   RESPONSIVE BEHAVIOR
----------------------------------------- */
-@media (max-width: 860px) {
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   7. RESPONSIVE BREAKPOINTS
+   ============================================ */
+@media (max-width: 960px) {
+  .nav-container {
+    height: var(--header-height-mobile, 70px);
+    padding: 0 var(--space-lg, 1.5rem);
+    gap: var(--space-lg, 1.5rem);
+  }
+
   .desktop-nav {
-    display: none;    /* Desktop-Navigation ausblenden */
+    display: none;
   }
 
   .nav-toggle {
-    display: flex;     /* Burger zeigen */
+    display: flex;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-title {
+    font-size: var(--font-size-sm, 0.875rem);
+  }
+
+  .brand-subtitle {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-container {
+    padding: 0 var(--space-md, 1rem);
+  }
+
+  .mobile-panel {
+    max-width: 100%;
+  }
+
+  .brand-text {
+    display: none; /* Hide text on very small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-panel-content {
+    padding: calc(var(--header-height-mobile, 70px) + var(--space-lg, 1.5rem)) var(--space-lg, 1.5rem) var(--space-lg, 1.5rem);
+  }
+}
+
+/* ============================================
+   8. PRINT STYLES
+   ============================================ */
+@media print {
+  #site-header {
+    position: relative;
+    background: white;
+    border-bottom: 1px solid black;
+  }
+
+  .nav-toggle,
+  .mobile-panel,
+  .nav-cta {
+    display: none !important;
+  }
+
+  .desktop-nav {
+    display: flex !important;
+  }
+}
+
+/* ============================================
+   9. ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-panel,
+  .nav-toggle,
+  .burger-icon span,
+  .brand-logo {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #site-header {
+    background: rgb(5, 7, 18);
+    border-bottom: 2px solid white;
+  }
+
+  .nav-toggle {
+    border-width: 2px;
   }
 }
