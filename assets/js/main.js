@@ -22,7 +22,7 @@
           setupScrollHeader();
         }
       })
-      .catch(err => console.error('Error loading navigation:', err));
+      .catch(err => console.warn('⚠️ Navigation konnte nicht geladen werden:', err));
   }
 
   function initFooter() {
@@ -35,7 +35,7 @@
           footerPlaceholder.outerHTML = html;
         }
       })
-      .catch(err => console.error('Error loading footer:', err));
+      .catch(err => console.warn('⚠️ Footer konnte nicht geladen werden:', err));
   }
 
   // Mobile menu toggle
