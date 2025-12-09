@@ -38,6 +38,9 @@
   <!-- Page Transitions -->
   <link rel="stylesheet" href="assets/css/transitions.css" />
 
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <style>
     :root {
       --bg: #050712;
@@ -364,26 +367,33 @@
 
     <div class="contact-box">
 
-      <!-- IMPORTANT: mailto: keeps GitHub Pages working -->
-      <form action="mailto:draftnexsolutions@outlook.de" method="POST" enctype="text/plain">
+      <!-- EmailJS Contact Form -->
+      <form id="contact-form">
 
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="Name" required placeholder="Wie darf ich dich nennen?" />
+        <div class="form-group">
+          <label for="from_name" class="form-label">Name</label>
+          <input type="text" id="from_name" name="from_name" class="form-input" required placeholder="Wie darf ich dich nennen?" />
         </div>
 
-        <div>
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" name="Email" required placeholder="Wohin soll ich antworten?" />
+        <div class="form-group">
+          <label for="from_email" class="form-label">E-Mail</label>
+          <input type="email" id="from_email" name="from_email" class="form-input" required placeholder="Wohin soll ich antworten?" />
         </div>
 
-        <div>
-          <label for="project">Dein Anliegen</label>
-          <textarea id="project" name="Projekt" required placeholder="Beschreibe kurz, wobei du Unterstützung brauchst."></textarea>
+        <div class="form-group">
+          <label for="message" class="form-label">Dein Anliegen</label>
+          <textarea id="message" name="message" class="form-textarea" required placeholder="Beschreibe kurz, wobei du Unterstützung brauchst."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-submit">
-          <i class="fa-solid fa-paper-plane"></i> Nachricht senden
+        <!-- Honeypot field for spam protection (hidden) -->
+        <input type="text" name="honeypot" id="honeypot" style="position:absolute;left:-9999px;top:-9999px" tabindex="-1" autocomplete="off" />
+
+        <!-- Status message container -->
+        <div id="form-status"></div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span id="submit-text">Nachricht senden</span>
         </button>
 
       </form>
@@ -410,6 +420,76 @@
 
   <!-- Main JavaScript -->
   <script src="assets/js/main.js"></script>
+
+  <!-- EmailJS Contact Form Handler -->
+  <script>
+    (function() {
+      // Initialize EmailJS with your public key
+      // IMPORTANT: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+      // Get it from: https://dashboard.emailjs.com/admin/account
+      emailjs.init('YOUR_PUBLIC_KEY');
+
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      const formStatus = document.getElementById('form-status');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Check honeypot field (spam protection)
+          if (document.getElementById('honeypot').value !== '') {
+            console.log('Spam detected');
+            return false;
+          }
+
+          // Disable button and show loading state
+          submitBtn.disabled = true;
+          submitText.textContent = 'Wird gesendet...';
+          submitBtn.style.opacity = '0.7';
+
+          // Get form data
+          const formData = {
+            from_name: document.getElementById('from_name').value,
+            from_email: document.getElementById('from_email').value,
+            message: document.getElementById('message').value
+          };
+
+          // Send email using EmailJS
+          // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+          // Service ID: Get from https://dashboard.emailjs.com/admin
+          // Template ID: Get from https://dashboard.emailjs.com/admin/templates
+          emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+
+              // Show success message
+              formStatus.innerHTML = '<div class="alert alert-success"><i class="fa-solid fa-circle-check"></i> Nachricht erfolgreich gesendet! Ich melde mich bald bei dir.</div>';
+
+              // Reset form
+              form.reset();
+
+              // Re-enable button
+              submitBtn.disabled = false;
+              submitText.textContent = 'Nachricht senden';
+              submitBtn.style.opacity = '1';
+
+            }, function(error) {
+              console.error('FAILED...', error);
+
+              // Show error message
+              formStatus.innerHTML = '<div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i> Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe direkt an <a href="mailto:draftnexsolutions@outlook.de" style="color: inherit; text-decoration: underline;">draftnexsolutions@outlook.de</a></div>';
+
+              // Re-enable button
+              submitBtn.disabled = false;
+              submitText.textContent = 'Nachricht senden';
+              submitBtn.style.opacity = '1';
+            });
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
