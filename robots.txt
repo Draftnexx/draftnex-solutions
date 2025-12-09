@@ -1,15 +1,18 @@
-# Robots.txt for Draftnex Solutions
-# Allow all crawlers to access all pages
+# robots.txt für Draftnex Solutions
 
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Wichtige Seiten
+Allow: /index.html
+Allow: /services.html
+Allow: /about.html
+Allow: /contact.html
+
+# Nicht indexieren
+Disallow: /impressum.html
+Disallow: /datenschutz.html
+Disallow: /404.html
+
+# Sitemap Location
 Sitemap: https://draftnex-solutions.de/sitemap.xml
-
-# Crawl-delay (optional, only if needed to prevent server overload)
-# Crawl-delay: 1
-
-# Disallow crawling of specific files if needed
-# User-agent: *
-# Disallow: /assets/
