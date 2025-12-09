@@ -28,17 +28,26 @@
   function setupMobileMenu() {
     const burger = document.querySelector('.nav-toggle');
     const mobilePanel = document.querySelector('.mobile-panel');
+    const mobileBackdrop = document.querySelector('.mobile-backdrop');
     const mobileLinks = document.querySelectorAll('.mobile-panel a');
     const body = document.body;
 
     if (burger && mobilePanel) {
+      // Function to close menu
+      const closeMenu = () => {
+        const nav = document.querySelector('.nav');
+        if (!nav) return;
+        nav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      };
+
       // Toggle menu
       burger.addEventListener('click', () => {
         const nav = document.querySelector('.nav');
-        nav.classList.toggle('open');
+        const isOpen = nav.classList.toggle('open');
 
         // Update aria-expanded
-        const isOpen = nav.classList.contains('open');
         burger.setAttribute('aria-expanded', isOpen);
 
         // Prevent body scroll when menu is open
@@ -51,33 +60,21 @@
 
       // Close menu when clicking links
       mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          const nav = document.querySelector('.nav');
-          nav.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
       });
+
+      // Close menu when clicking backdrop
+      if (mobileBackdrop) {
+        mobileBackdrop.addEventListener('click', closeMenu);
+      }
 
       // Close menu on escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           const nav = document.querySelector('.nav');
           if (nav && nav.classList.contains('open')) {
-            nav.classList.remove('open');
-            burger.setAttribute('aria-expanded', 'false');
-            body.style.overflow = '';
+            closeMenu();
           }
-        }
-      });
-
-      // Close menu when clicking backdrop
-      mobilePanel.addEventListener('click', (e) => {
-        if (e.target === mobilePanel) {
-          const nav = document.querySelector('.nav');
-          nav.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          body.style.overflow = '';
         }
       });
     }
