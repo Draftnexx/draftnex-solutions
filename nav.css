@@ -3,18 +3,21 @@
    ============================================ */
 
 /* ============================================
-   1. MAIN NAVIGATION CONTAINER
+   1. MAIN NAVIGATION CONTAINER (ALWAYS FIXED & CONSISTENT)
    ============================================ */
 #site-header {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-fixed, 1030);
+  width: 100%;
+  z-index: 1030;
   background: rgba(5, 7, 18, 0.85);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-subtle, rgba(255, 255, 255, 0.06));
   transition: all var(--transition-base, 250ms ease);
+  will-change: background, border-color, box-shadow;
 }
 
 #site-header.scrolled {

@@ -265,44 +265,96 @@
 }
 
 /* ============================================
-   4. NAVIGATION
+   4. NAVIGATION (INNOVATIVE DESIGN)
    ============================================ */
+.desktop-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Sliding Active Indicator */
+.nav-active-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.nav-active-indicator.visible {
+  opacity: 1;
+}
+
 .nav-link {
   display: inline-block;
-  padding: 0.5rem 0;
+  padding: var(--space-md) var(--space-lg);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-decoration: none;
   position: relative;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
+/* Ripple effect container */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 201, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease-out, height 0.6s ease-out;
+  pointer-events: none;
+}
+
+.nav-link:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+/* Subtle underline on hover */
 .nav-link::after {
   content: '';
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  transition: width var(--transition-base);
+  left: var(--space-lg);
+  right: var(--space-lg);
+  bottom: 8px;
+  height: 1px;
+  background: var(--color-primary);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all var(--transition-base);
 }
 
 .nav-link:hover {
   color: var(--color-text-primary);
+  background: var(--color-accent-soft);
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  opacity: 0.5;
+  transform: scaleX(1);
 }
 
 .nav-link.active {
   color: var(--color-primary);
+  background: var(--color-accent-soft);
+  font-weight: var(--font-weight-semibold);
 }
 
 .nav-link.active::after {
-  width: 100%;
+  opacity: 0; /* Hide because sliding indicator shows it */
 }
 
 /* ============================================
