@@ -290,6 +290,46 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
     }
+
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+
+      .hero-sub {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-box {
+        padding: 1.5rem;
+      }
+
+      .wrapper {
+        width: 95%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .contact-box {
+        padding: 1.25rem;
+      }
+
+      input, textarea {
+        font-size: 0.9rem;
+      }
+
+      .btn-submit {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
