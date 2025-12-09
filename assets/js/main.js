@@ -24,6 +24,19 @@
       .catch(err => console.error('Error loading navigation:', err));
   }
 
+  function initFooter() {
+    // Load footer
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        const footerPlaceholder = document.getElementById('site-footer');
+        if (footerPlaceholder) {
+          footerPlaceholder.outerHTML = html;
+        }
+      })
+      .catch(err => console.error('Error loading footer:', err));
+  }
+
   // Mobile menu toggle
   function setupMobileMenu() {
     const burger = document.querySelector('.nav-toggle');
@@ -401,6 +414,7 @@
 
   function runInit() {
     initNavigation();
+    initFooter();
     initScrollToTop();
     initRevealAnimations();
     initPageTransitions();

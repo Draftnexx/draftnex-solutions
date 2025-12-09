@@ -161,6 +161,24 @@ body {
   min-height: 100vh;
 }
 
+/* Main content spacing for fixed header */
+main {
+  padding-top: 120px;
+  min-height: calc(100vh - 120px);
+}
+
+@media (max-width: 960px) {
+  main {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 90px;
+  }
+}
+
 /* ============================================
    3. TYPOGRAPHY SYSTEM
    ============================================ */
