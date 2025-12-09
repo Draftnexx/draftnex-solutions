@@ -39,238 +39,141 @@
   <link rel="stylesheet" href="assets/css/transitions.css" />
 
   <style>
-    :root {
-      --bg: #050712;
-      --bg-alt: #070a18;
-      --fg: #f5f7ff;
-      --muted: #9da3c6;
-      --accent: #29e0ff;
-      --accent-2: #c357ff;
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --radius-lg: 18px;
-      --radius-xl: 22px;
-      --shadow: 0 18px 45px rgba(0,0,0,0.65);
-      --shadow-neon: 0 0 30px rgba(41,224,255,0.4);
-      --transition: 240ms ease-out;
+    /* Page-specific styles for Services */
+
+    .page-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: radial-gradient(circle at top, #0c1024 0%, #050712 70%);
-      color: var(--fg);
-      font-family: "Space Grotesk", sans-serif;
-      overflow-x: hidden;
-      padding-top: var(--header-height, 80px);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -40vh -40vw;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(41,224,255,0.20), transparent 55%),
-        radial-gradient(circle at 85% 10%, rgba(195,87,255,0.20), transparent 55%),
-        radial-gradient(circle at 20% 90%, rgba(49,255,171,0.17), transparent 55%);
-      filter: blur(10px);
-      opacity: .7;
-      z-index: -1;
-      animation: float 18s infinite ease-in-out alternate;
-    }
-
-    @keyframes float {
-      0% { transform: translate3d(-30px,-20px,0); }
-      100% { transform: translate3d(30px,30px,0); }
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      padding: .8rem 0;
-      backdrop-filter: blur(18px);
-      background: rgba(3,5,18,.85);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .wrapper {
-      width: min(1100px, 90%);
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    .brand-mark {
-      width: 30px;
-      height: 30px;
-      border: 1px solid var(--accent);
-      background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
-      box-shadow: var(--shadow-neon);
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: .8rem;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.3rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: .9rem;
-      position: relative;
-    }
-
-    nav a:hover {
-      color: var(--fg);
-    }
-
-    .btn {
-      padding: .5rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(10,15,30,.9);
-      text-decoration: none;
-      color: var(--fg);
-      font-size: .85rem;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-    }
-
-    .btn-primary {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
-      box-shadow: 0 0 0 rgba(41,224,255,0.4);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 0 32px rgba(41,224,255,0.6);
-    }
-
-    .btn-ghost {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(10, 15, 30, 0.6);
-      padding: 0.5rem 1.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      color: var(--fg);
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: var(--transition);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    h1 {
-      margin-top: 2rem;
-      font-size: 2.2rem;
-      letter-spacing: .05em;
-      background: linear-gradient(120deg, #fff, #b7f7ff, #dcb4ff);
+    .page-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      background: linear-gradient(120deg, var(--color-text-primary), var(--color-primary-light), var(--color-secondary-light));
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
-      margin-bottom: 2rem;
+      margin-bottom: var(--space-sm);
     }
 
-    .section {
-      margin-bottom: 3rem;
+    .section-heading {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
+    }
+
+    .section-description {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      margin-bottom: var(--space-lg);
     }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-xl);
+      margin-bottom: var(--space-4xl);
     }
 
-    .card {
-      padding: 1.3rem;
-      border-radius: var(--radius-lg);
-      background: rgba(7,10,26,.88);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
+    .service-card {
+      background: var(--color-bg-card);
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border-subtle);
+      transition: all var(--transition-base);
       position: relative;
-      overflow: hidden;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
-      box-shadow: 0 0 28px rgba(41,224,255,0.4);
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: .4rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.55;
-      margin-bottom: .7rem;
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 24px rgba(0, 201, 255, 0.15);
     }
 
     .card-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 0 0, rgba(41,224,255,.4), rgba(10,16,40,.9));
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--color-accent-soft), var(--color-bg-tertiary));
+      border: 1px solid var(--color-border-default);
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin-bottom: .6rem;
-      color: #e7fbff;
-      font-size: 1.1rem;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      color: var(--color-primary);
+      font-size: 1.3rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
+    }
+
+    .service-card p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
     }
 
     .tag-row {
       display: flex;
-      gap: .4rem;
+      gap: var(--space-xs);
       flex-wrap: wrap;
-      margin-top: .4rem;
     }
 
     .tag {
-      font-size: .75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: .15rem .55rem;
-      color: var(--muted);
+      font-size: 0.75rem;
+      padding: var(--space-2xs) var(--space-sm);
+      border-radius: var(--radius-pill);
+      background: var(--color-bg-tertiary);
+      border: 1px solid var(--color-border-default);
+      color: var(--color-text-secondary);
+      transition: all var(--transition-fast);
     }
 
-    footer {
-      margin-top: 3rem;
-      padding: 1.5rem 0 2.5rem;
-      color: var(--muted);
-      font-size: .85rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .tag:hover {
+      background: var(--color-accent-soft);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .cta-card {
+      text-align: center;
+      padding: var(--space-3xl);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border-default);
+      margin-top: var(--space-4xl);
+    }
+
+    .cta-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
+    }
+
+    .cta-card p {
+      color: var(--color-text-muted);
+      max-width: 500px;
+      margin: 0 auto var(--space-lg);
+      font-size: 1rem;
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .service-card {
+        padding: var(--space-lg);
+      }
+
+      .cta-card {
+        padding: var(--space-2xl);
+      }
     }
   </style>
 </head>
@@ -279,76 +182,20 @@
   <!-- Header wird aus nav.html geladen -->
   <header id="site-header"></header>
 
-<script>
-  // Navigation dynamisch laden
-  fetch("nav.html")
-    .then(res => res.text())
-    .then(html => {
-      // HTML der Navigation einfügen
-      document.getElementById("site-header").innerHTML = html;
-
-      // Elemente im geladenen nav.html holen
-      const navContainer = document.querySelector(".nav");
-      const navToggle = document.querySelector(".nav-toggle");
-      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
-
-      const mobileBackdrop = document.querySelector(".mobile-backdrop");
-      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
-
-      // Funktion zum Schließen des Menüs
-      const closeMenu = () => {
-        if (!navContainer) return;
-        navContainer.classList.remove("open");
-        if (navToggle) {
-          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        }
-      };
-
-      // Burger-Button klickbar machen
-      if (navToggle && navContainer) {
-        navToggle.addEventListener("click", () => {
-          const isOpen = navContainer.classList.toggle("open");
-
-          navToggle.innerHTML = isOpen
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
-        });
-      }
-
-      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
-      mobilePanelLinks.forEach(link => {
-        link.addEventListener("click", () => {
-          if (!navContainer) return;
-
-          navContainer.classList.remove("open");
-
-          if (navToggle) {
-            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-          }
-        });
-      // Backdrop schließt das Menü
-      if (mobileBackdrop) {
-        mobileBackdrop.addEventListener("click", closeMenu);
-      }
-
-      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
-      mobilePanelLinks.forEach(link => {
-        link.addEventListener("click", closeMenu);
-      });
-    });
-</script>
 
   <main class="wrapper">
-    <h1>Leistungen & Services</h1>
+    <header class="page-header">
+      <h1 class="page-title">Leistungen & Services</h1>
+    </header>
 
     <!-- APP DEVELOPMENT -->
     <section class="section">
-      <h2>App-Entwicklung (Mobile · Desktop · Web)</h2>
-      <p>Der Kern von Draftnex – deine individuelle App, perfekt auf deinen Alltag abgestimmt.</p>
+      <h2 class="section-heading">App-Entwicklung (Mobile · Desktop · Web)</h2>
+      <p class="section-description">Der Kern von Draftnex – deine individuelle App, perfekt auf deinen Alltag abgestimmt.</p>
 
       <div class="service-grid">
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
           <h3>Individuelle Mobile Apps</h3>
           <p>
@@ -356,13 +203,13 @@
             Keine Vorlagen – echte Individualentwicklung.
           </p>
           <div class="tag-row">
-            <div class="tag">Android</div>
-            <div class="tag">Flutter</div>
-            <div class="tag">Tools & Systeme</div>
+            <span class="tag">Android</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Tools & Systeme</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-desktop"></i></div>
           <h3>Desktop-Apps</h3>
           <p>
@@ -370,20 +217,20 @@
             Ideal für Verwaltung, Daten, Automationen und Backoffice.
           </p>
           <div class="tag-row">
-            <div class="tag">Windows</div>
-            <div class="tag">Electron</div>
-            <div class="tag">Produktivität</div>
+            <span class="tag">Windows</span>
+            <span class="tag">Electron</span>
+            <span class="tag">Produktivität</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
           <h3>Web-Apps</h3>
           <p>Leichte, moderne Web-Applikationen – schnell, effizient, überall erreichbar.</p>
           <div class="tag-row">
-            <div class="tag">Web</div>
-            <div class="tag">JavaScript</div>
-            <div class="tag">APIs</div>
+            <span class="tag">Web</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">APIs</span>
           </div>
         </div>
 
@@ -392,41 +239,41 @@
 
     <!-- DIGITAL SYSTEMS -->
     <section class="section">
-      <h2>Digitale Systeme & Automationen</h2>
-      <p>Ordnung, Struktur, Effizienz – gebaut für deinen Alltag.</p>
+      <h2 class="section-heading">Digitale Systeme & Automationen</h2>
+      <p class="section-description">Ordnung, Struktur, Effizienz – gebaut für deinen Alltag.</p>
 
       <div class="service-grid">
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
           <h3>Digitale Arbeitsumgebungen</h3>
           <p>Notion-Setups, Cloud-Systeme, Datenstrukturen – alles klar, logisch und nutzbar.</p>
           <div class="tag-row">
-            <div class="tag">Notion</div>
-            <div class="tag">Google Cloud</div>
-            <div class="tag">Ordnung</div>
+            <span class="tag">Notion</span>
+            <span class="tag">Google Cloud</span>
+            <span class="tag">Ordnung</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
           <h3>Automationen & KI-Workflows</h3>
           <p>Automatische Abläufe für wiederkehrende Aufgaben, inkl. KI-Unterstützung.</p>
           <div class="tag-row">
-            <div class="tag">KI</div>
-            <div class="tag">Automation</div>
-            <div class="tag">Python</div>
+            <span class="tag">KI</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Python</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
           <h3>Cloud & Ordnung</h3>
           <p>Klare Struktur in Dateien, Backups, Passwörtern und Dokumenten.</p>
           <div class="tag-row">
-            <div class="tag">Datensicherheit</div>
-            <div class="tag">Cloud</div>
-            <div class="tag">Backups</div>
+            <span class="tag">Datensicherheit</span>
+            <span class="tag">Cloud</span>
+            <span class="tag">Backups</span>
           </div>
         </div>
 
@@ -435,39 +282,39 @@
 
     <!-- SUPPORT -->
     <section class="section">
-      <h2>IT-Support & Problemlösung</h2>
-      <p>Schnelle Hilfe ohne Fachchinesisch. Direkt, verständlich, effektiv.</p>
+      <h2 class="section-heading">IT-Support & Problemlösung</h2>
+      <p class="section-description">Schnelle Hilfe ohne Fachchinesisch. Direkt, verständlich, effektiv.</p>
 
       <div class="service-grid">
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
           <h3>Fehleranalyse & Optimierung</h3>
           <p>Windows, macOS, Software, Netzwerk – ich löse Probleme effizient.</p>
           <div class="tag-row">
-            <div class="tag">Windows</div>
-            <div class="tag">macOS</div>
-            <div class="tag">Analyse</div>
+            <span class="tag">Windows</span>
+            <span class="tag">macOS</span>
+            <span class="tag">Analyse</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <h3>Datensicherheit</h3>
           <p>Backups, Passwortsysteme, Cloud-Sicherheit – klar, verständlich erklärt.</p>
           <div class="tag-row">
-            <div class="tag">Sicherheit</div>
-            <div class="tag">Backup</div>
+            <span class="tag">Sicherheit</span>
+            <span class="tag">Backup</span>
           </div>
         </div>
 
-        <div class="card">
+        <div class="service-card">
           <div class="card-icon"><i class="fa-solid fa-code-merge"></i></div>
           <h3>Technische Einrichtung</h3>
           <p>Neue Geräte, Cloud, E-Mail, Systeme – korrekt, sauber und betriebsbereit.</p>
           <div class="tag-row">
-            <div class="tag">Setup</div>
-            <div class="tag">E-Mail</div>
+            <span class="tag">Setup</span>
+            <span class="tag">E-Mail</span>
           </div>
         </div>
 
@@ -475,28 +322,20 @@
     </section>
 
     <!-- CTA -->
-    <section class="section" style="margin-top: 3rem;">
-      <div class="card" style="text-align: center; padding: 2rem;">
-        <h2 style="margin-bottom: .5rem;">Bereit für dein Projekt?</h2>
-        <p style="color: var(--muted); max-width: 430px; margin: 0 auto 1.2rem;">
-          Erzähl mir kurz, was du planst – ich melde mich mit einer ehrlichen Einschätzung.
-        </p>
-        <a href="contact.html" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i> Projekt anfragen
-        </a>
-      </div>
-    </section>
+    <div class="cta-card">
+      <h2>Bereit für dein Projekt?</h2>
+      <p>
+        Erzähl mir kurz, was du planst – ich melde mich mit einer ehrlichen Einschätzung.
+      </p>
+      <a href="contact.html" class="btn btn-primary">
+        <i class="fa-solid fa-paper-plane"></i> Projekt anfragen
+      </a>
+    </div>
 
   </main>
 
-  <footer>
-    <div class="wrapper">
-      © <span id="current-year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
-      <br />
-      <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a> ·
-      <a href="datenschutz.html" style="color: var(--muted); text-decoration:none;">Datenschutz</a>
-    </div>
-  </footer>
+  <!-- Footer Placeholder (loaded via JavaScript) -->
+  <div id="site-footer"></div>
 
   <!-- Main JavaScript -->
   <script src="assets/js/main.js"></script>
