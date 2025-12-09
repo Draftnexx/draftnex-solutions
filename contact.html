@@ -19,6 +19,10 @@
   <meta property="og:description" content="Kontaktiere uns für individuelle App-Entwicklung und digitale Systeme." />
   <meta property="og:image" content="https://draftnex-solutions.de/buiswebsite.png" />
 
+  <!-- Performance: Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
@@ -336,65 +340,6 @@
 <body>
   <!-- Header wird aus nav.html geladen -->
   <header id="site-header"></header>
-
-<script>
-  // Navigation dynamisch laden
-  fetch("nav.html")
-    .then(res => res.text())
-    .then(html => {
-      // HTML der Navigation einfügen
-      document.getElementById("site-header").innerHTML = html;
-
-      // Elemente im geladenen nav.html holen
-      const navContainer = document.querySelector(".nav");
-      const navToggle = document.querySelector(".nav-toggle");
-      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
-
-      const mobileBackdrop = document.querySelector(".mobile-backdrop");
-      const mobilePanelLinks = document.querySelectorAll(".mobile-panel a");
-
-      // Funktion zum Schließen des Menüs
-      const closeMenu = () => {
-        if (!navContainer) return;
-        navContainer.classList.remove("open");
-        if (navToggle) {
-          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        }
-      };
-
-      // Burger-Button klickbar machen
-      if (navToggle && navContainer) {
-        navToggle.addEventListener("click", () => {
-          const isOpen = navContainer.classList.toggle("open");
-
-          navToggle.innerHTML = isOpen
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
-        });
-      }
-
-      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
-      mobilePanelLinks.forEach(link => {
-        link.addEventListener("click", () => {
-          if (!navContainer) return;
-
-          navContainer.classList.remove("open");
-
-          if (navToggle) {
-            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-          }
-        });
-      // Backdrop schließt das Menü
-      if (mobileBackdrop) {
-        mobileBackdrop.addEventListener("click", closeMenu);
-      }
-
-      // Wenn im Slide-Menü ein Link geklickt wird → Menü schließen
-      mobilePanelLinks.forEach(link => {
-        link.addEventListener("click", closeMenu);
-      });
-    });
-</script>
 
   <main class="wrapper">
 

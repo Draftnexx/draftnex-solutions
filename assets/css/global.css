@@ -84,13 +84,13 @@
   --letter-spacing-wide: 0.06em;
   --letter-spacing-wider: 0.12em;
 
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 18px;
-  --radius-2xl: 22px;
-  --radius-full: 9999px;
+  /* Border Radius - ROUNDED DESIGN SYSTEM */
+  --radius-sm: 8px;        /* Small: Tags, Chips */
+  --radius-md: 14px;       /* Medium: Buttons, Inputs */
+  --radius-lg: 22px;       /* Large: Cards, Panels */
+  --radius-xl: 28px;       /* Extra Large: Hero Cards */
+  --radius-2xl: 36px;      /* 2XL: Special Containers */
+  --radius-full: 999px;    /* Pill: Buttons, Badges */
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
