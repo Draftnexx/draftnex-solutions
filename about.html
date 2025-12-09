@@ -43,312 +43,193 @@
   <link rel="stylesheet" href="assets/css/transitions.css" />
 
   <style>
-    :root {
-      --bg: #050712;
-      --fg: #f5f7ff;
-      --muted: #9da3c6;
-      --accent: #29e0ff;
-      --border: rgba(255,255,255,0.1);
-      --radius-lg: 18px;
-      --radius-xl: 22px;
-      --shadow: 0 18px 45px rgba(0,0,0,0.55);
-      --glow: 0 0 30px rgba(41,224,255,0.35);
-    }
+    /* Page-specific styles for About */
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: radial-gradient(circle at top, #0f1227 0%, #050712 70%);
-      color: var(--fg);
-      font-family: "Space Grotesk", sans-serif;
-      overflow-x: hidden;
-      line-height: 1.7;
-    }
-
-    /* Animated gradient background */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -40vh -40vw;
-      background:
-        radial-gradient(circle at 15% 15%, rgba(41,224,255,0.15), transparent 55%),
-        radial-gradient(circle at 75% 20%, rgba(195,87,255,0.15), transparent 55%),
-        radial-gradient(circle at 30% 85%, rgba(49,255,171,0.12), transparent 55%);
-      filter: blur(10px);
-      z-index: -1;
-      opacity: .65;
-      animation: floatBg 18s infinite ease-in-out alternate;
-    }
-
-    @keyframes floatBg {
-      0% { transform: translate3d(-20px, -20px, 0); }
-      100% { transform: translate3d(20px, 30px, 0); }
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      padding: .8rem 0;
-      backdrop-filter: blur(18px);
-      background: rgba(3,5,18,.85);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      z-index: 20;
-    }
-
-    .wrapper {
-      width: min(1080px, 90%);
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      background: radial-gradient(circle at 20% 0%, #29e0ff, #0a0e2b);
-      box-shadow: var(--glow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: .8rem;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1.4rem;
-      list-style: none;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .9rem;
-    }
-
-    nav a:hover {
-      color: var(--fg);
-    }
-
-    /* Buttons */
-    .btn {
-      padding: .5rem 1.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      color: var(--fg);
-      font-size: .85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      transition: 240ms ease-out;
-    }
-
-    .btn-primary {
-      border: 1px solid var(--accent);
-      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
-      box-shadow: 0 0 0 rgba(41,224,255,0.4);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 0 32px rgba(41,224,255,0.6);
-    }
-
-    .btn-ghost {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(10, 15, 30, 0.6);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* HERO */
-    .hero {
+    .page-header {
       text-align: center;
-      padding: 4rem 1rem 2rem;
+      padding: var(--space-4xl) var(--space-lg) var(--space-3xl);
       max-width: 800px;
       margin: 0 auto;
     }
 
-    .hero h1 {
-      font-size: 2.6rem;
-      background: linear-gradient(120deg, #fff, #b7f7ff, #e6c0ff);
+    .page-title {
+      font-size: clamp(2.2rem, 5vw, 2.8rem);
+      background: linear-gradient(120deg, var(--color-text-primary), var(--color-primary-light), var(--color-secondary-light));
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
-      margin-bottom: .8rem;
+      margin-bottom: var(--space-md);
     }
 
-    .hero p {
+    .page-subtitle {
+      color: var(--color-text-secondary);
+      font-size: clamp(1rem, 2vw, 1.1rem);
       max-width: 580px;
       margin: 0 auto;
-      color: var(--muted);
+      line-height: var(--line-height-relaxed);
     }
 
-    /* ABOUT GRID */
+    /* About Grid */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 350px;
-      gap: 2.5rem;
-      justify-content: center;
-      align-items: center;
-      justify-items: center;
+      gap: var(--space-3xl);
+      align-items: start;
+      margin-bottom: var(--space-5xl);
     }
 
-    /* PROFILE BOX */
-    .profile {
-      background: rgba(7,10,26,.85);
-      padding: 2rem;
+    .profile-card {
+      background: var(--color-bg-card);
+      padding: var(--space-2xl);
       border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      width: 100%;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: var(--shadow-lg);
     }
 
-    .profile h3 {
-      margin-bottom: .5rem;
-      font-size: 1.4rem;
+    .profile-card h3 {
+      font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+      margin-bottom: var(--space-md);
+      color: var(--color-text-primary);
     }
 
-    .profile p {
-      color: var(--muted);
-      margin-bottom: .7rem;
+    .profile-card p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .profile-card p strong {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
     }
 
     .tag-row {
       display: flex;
       flex-wrap: wrap;
-      gap: .4rem;
-      margin-top: .6rem;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
     }
 
     .tag {
-      font-size: .75rem;
-      padding: .2rem .55rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      color: var(--muted);
+      font-size: var(--font-size-xs);
+      padding: var(--space-xs) var(--space-md);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-full);
+      color: var(--color-text-secondary);
+      background: var(--color-bg-tertiary);
+      transition: all var(--transition-fast);
     }
 
-    /* PHOTO BOX */
-    .photo {
+    .tag:hover {
+      background: var(--color-accent-soft);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* Photo Box */
+    .photo-box {
       width: 100%;
       height: 360px;
-      max-width: 330px;
-      border-radius: 22px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(7,10,26,.7);
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid var(--color-border-default);
+      background: var(--color-bg-card);
+      box-shadow: var(--shadow-lg);
+      position: relative;
     }
 
-    .photo-img {
+    .photo-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      border-radius: inherit;
-      filter: drop-shadow(0 0 12px rgba(41,224,255,0.4));
-      opacity: .96;
-      animation: floatImage 7s ease-in-out infinite alternate;
+      object-position: center;
+      transition: transform var(--transition-base);
     }
 
-    @keyframes floatImage {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-5px); }
+    .photo-box:hover img {
+      transform: scale(1.05);
     }
 
-    /* HEADERS */
-    h2 {
-      font-size: 1.35rem;
-      margin-bottom: .6rem;
+    /* Values Section */
+    .values-section {
+      margin-bottom: var(--space-5xl);
+    }
+
+    .section-heading {
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: var(--letter-spacing-wide);
     }
 
-    /* VALUE GRID */
+    .section-description {
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin-bottom: var(--space-2xl);
+      line-height: var(--line-height-relaxed);
+    }
+
     .value-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.4rem;
+      gap: var(--space-xl);
     }
 
-    .value {
-      background: rgba(7,10,26,.88);
-      padding: 1.4rem;
+    .value-card {
+      background: var(--color-bg-card);
+      padding: var(--space-xl);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: .25s;
+      border: 1px solid var(--color-border-subtle);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
     }
 
-    .value:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--glow);
-      border-color: var(--accent);
+    .value-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 24px rgba(0, 201, 255, 0.15);
     }
 
-    /* BUTTON */
-    .btn {
-      padding: .5rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(10,15,30,.9);
-      text-decoration: none;
-      color: var(--fg);
-      font-size: .85rem;
-      transition: .25s;
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
+    .value-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-sm);
+      color: var(--color-text-primary);
     }
 
-    .btn:hover {
-      background: linear-gradient(135deg, rgba(41,224,255,0.2), rgba(195,87,255,0.2));
-      border-color: var(--accent);
-      box-shadow: 0 0 28px rgba(41,224,255,0.5);
+    .value-card p {
+      color: var(--color-text-muted);
+      line-height: var(--line-height-relaxed);
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 3rem;
-      padding: 1.4rem 0 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    /* CTA Section */
+    .cta-section {
       text-align: center;
-      color: var(--muted);
-      font-size: .85rem;
+      padding: var(--space-3xl) 0;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
+    /* Mobile Responsive */
+    @media (max-width: 960px) {
       .about-grid {
         grid-template-columns: 1fr;
       }
 
-      .photo {
-        margin-top: 1rem;
+      .photo-box {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
       }
     }
 
+    @media (max-width: 480px) {
+      .page-header {
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
+      }
+
+      .photo-box {
+        height: 300px;
+      }
+    }
   </style>
 </head>
 
@@ -356,95 +237,103 @@
   <!-- Header wird aus nav.html geladen -->
   <header id="site-header"></header>
 
-<section class="hero">
-  <h1>Über mich</h1>
-  <p>Ich bin Maxx – Entwickler, Systembauer und Problemlöser.  
-  Ich baue Apps und digitale Systeme, die deinen Alltag leichter machen.</p>
-</section>
-
-<section class="section wrapper">
-  <div class="about-grid">
-
-    <div class="profile">
-      <h3>Wer ich bin</h3>
-      <p>
-        Ich arbeite seit vielen Jahren am Computer, entwickle Apps, baue digitale Systeme 
-        und helfe Menschen dabei, ihre Technik sinnvoll zu nutzen.  
-        Draftnex Solutions entstand aus dem Gedanken, dass Software nicht kompliziert sein muss – 
-        sie muss einfach funktionieren und zu deinem Alltag passen.
+  <main class="container">
+    <!-- Hero Header -->
+    <section class="page-header reveal">
+      <h1 class="page-title">Über mich</h1>
+      <p class="page-subtitle">
+        Ich bin Maxx – Entwickler, Systembauer und Problemlöser.
+        Ich baue Apps und digitale Systeme, die deinen Alltag leichter machen.
       </p>
+    </section>
 
-      <p>
-        Ich liebe es, Dinge zu strukturieren, Probleme zu lösen und digitale Abläufe so zu bauen,
-        dass sie sich <strong>natürlich</strong> und logisch anfühlen.  
-        Keine Buzzwords. Kein Fachchinesisch. Nur klare Lösungen.
-      </p>
+    <!-- About Grid -->
+    <section class="about-grid reveal">
+      <div class="profile-card">
+        <h3>Wer ich bin</h3>
+        <p>
+          Ich arbeite seit vielen Jahren am Computer, entwickle Apps, baue digitale Systeme
+          und helfe Menschen dabei, ihre Technik sinnvoll zu nutzen.
+          Draftnex Solutions entstand aus dem Gedanken, dass Software nicht kompliziert sein muss –
+          sie muss einfach funktionieren und zu deinem Alltag passen.
+        </p>
 
-      <div class="tag-row">
-        <div class="tag">App-Entwicklung</div>
-        <div class="tag">Digitale Ordnung</div>
-        <div class="tag">Automationen</div>
-        <div class="tag">Effizienz</div>
+        <p>
+          Ich liebe es, Dinge zu strukturieren, Probleme zu lösen und digitale Abläufe so zu bauen,
+          dass sie sich <strong>natürlich</strong> und logisch anfühlen.
+          Keine Buzzwords. Kein Fachchinesisch. Nur klare Lösungen.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">App-Entwicklung</span>
+          <span class="tag">Digitale Ordnung</span>
+          <span class="tag">Automationen</span>
+          <span class="tag">Effizienz</span>
+        </div>
       </div>
-    </div>
 
-    <div class="photo">
-      <img src="buiswebsite.png" alt="Foto von Maxx" class="photo-img" loading="lazy">
-    </div>
+      <div class="photo-box">
+        <img src="buiswebsite.png" alt="Foto von Maxx" loading="lazy">
+      </div>
+    </section>
 
-  </div>
-</section>
+    <!-- Mission Section -->
+    <section class="values-section reveal">
+      <h2 class="section-heading">Meine Mission</h2>
+      <p class="section-description">
+        Technik soll dir dienen – nicht andersherum.
+        Mein Ziel ist es, Werkzeuge zu bauen, die dich entlasten, deinen Alltag ordnen
+        und dich schneller ans Ziel bringen.
+      </p>
 
-<section class="section wrapper">
-  <h2>Meine Mission</h2>
-  <p style="color: var(--muted); max-width: 700px;">
-    Technik soll dir dienen – nicht andersherum.  
-    Mein Ziel ist es, Werkzeuge zu bauen, die dich entlasten, deinen Alltag ordnen
-    und dich schneller ans Ziel bringen.
-  </p>
+      <div class="value-grid">
+        <div class="value-card reveal">
+          <h3>Klarheit vor Chaos</h3>
+          <p>Ich baue Systeme, die nicht überfordern, sondern Orientierung geben.</p>
+        </div>
 
-  <div class="value-grid">
-    <div class="value">
-      <h3>Klarheit vor Chaos</h3>
-      <p>Ich baue Systeme, die nicht überfordern, sondern Orientierung geben.</p>
-    </div>
+        <div class="value-card reveal">
+          <h3>Apps ohne Overkill</h3>
+          <p>Keine unnötigen Features – nur das, was du wirklich brauchst.</p>
+        </div>
 
-    <div class="value">
-      <h3>Apps ohne Overkill</h3>
-      <p>Keine unnötigen Features – nur das, was du wirklich brauchst.</p>
-    </div>
+        <div class="value-card reveal">
+          <h3>Effizienz & Fokus</h3>
+          <p>Jedes Element einer App hat einen Zweck: Klarheit, Struktur, Produktivität.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="value">
-      <h3>Effizienz & Fokus</h3>
-      <p>Jedes Element einer App hat einen Zweck: Klarheit, Struktur, Produktivität.</p>
-    </div>
-  </div>
-</section>
+    <!-- Working Style Section -->
+    <section class="values-section reveal">
+      <h2 class="section-heading">Wie ich arbeite</h2>
 
-<section class="section wrapper">
-  <h2>Wie ich arbeite</h2>
+      <div class="value-grid">
+        <div class="value-card reveal">
+          <h3>Ehrlich & direkt</h3>
+          <p>Ich sage dir genau, was möglich ist und was nicht – ohne Fachblabla.</p>
+        </div>
 
-  <div class="value-grid">
-    <div class="value">
-      <h3>Ehrlich & direkt</h3>
-      <p>Ich sage dir genau, was möglich ist und was nicht – ohne Fachblabla.</p>
-    </div>
+        <div class="value-card reveal">
+          <h3>Gemeinsam statt anonym</h3>
+          <p>Du sprichst mit mir persönlich, ohne Ticketsystem oder Support-Bot.</p>
+        </div>
 
-    <div class="value">
-      <h3>Gemeinsam statt anonym</h3>
-      <p>Du sprichst mit mir persönlich, ohne Ticketsystem oder Support-Bot.</p>
-    </div>
+        <div class="value-card reveal">
+          <h3>Technik, die zu dir passt</h3>
+          <p>Alles wird so entwickelt, dass es sich für dich selbstverständlich anfühlt.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="value">
-      <h3>Technik, die zu dir passt</h3>
-      <p>Alles wird so entwickelt, dass es sich für dich selbstverständlich anfühlt.</p>
-    </div>
-  </div>
-
-  <div class="cta" style="margin-top: 2rem; text-align: center;">
-    <a href="contact.html" class="btn"><i class="fa-solid fa-paper-plane"></i> Projekt anfragen</a>
-  </div>
-</section>
+    <!-- CTA Section -->
+    <section class="cta-section reveal">
+      <a href="contact.html" class="btn btn-primary btn-lg">
+        <i class="fa-solid fa-paper-plane"></i>
+        Projekt anfragen
+      </a>
+    </section>
+  </main>
 
   <!-- Footer Placeholder (loaded via JavaScript) -->
   <div id="site-footer"></div>
