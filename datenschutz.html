@@ -48,7 +48,6 @@
       font-family: "Space Grotesk", sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
-      padding-top: var(--header-height, 80px);
     }
 
     body::before {
@@ -224,6 +223,44 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
     }
+
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 2.5rem;
+      }
+
+      .section-box {
+        padding: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      p, a {
+        font-size: 0.9rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .wrapper {
+        width: 95%;
+      }
+
+      .section-box {
+        padding: 1.25rem;
+      }
+    }
   </style>
 </head>
 
@@ -391,11 +428,8 @@
 
   </main>
 
-  <footer>
-    © <span id="current-year"></span> Draftnex Solutions · Alle Rechte vorbehalten.
-    <br />
-    <a href="impressum.html" style="color: var(--muted); text-decoration:none;">Impressum</a>
-  </footer>
+  <!-- Footer Placeholder (loaded via JavaScript) -->
+  <div id="site-footer"></div>
 
   <!-- Main JavaScript -->
   <script src="assets/js/main.js"></script>

@@ -24,6 +24,19 @@
       .catch(err => console.error('Error loading navigation:', err));
   }
 
+  function initFooter() {
+    // Load footer
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => {
+        const footerPlaceholder = document.getElementById('site-footer');
+        if (footerPlaceholder) {
+          footerPlaceholder.outerHTML = html;
+        }
+      })
+      .catch(err => console.error('Error loading footer:', err));
+  }
+
   // Mobile menu toggle
   function setupMobileMenu() {
     const burger = document.querySelector('.nav-toggle');
@@ -169,12 +182,37 @@
   }
 
   /* ============================================
-     4. PAGE TRANSITIONS
+     4. PAGE TRANSITIONS (WITHOUT WHITE FLASH)
      ============================================ */
   function initPageTransitions() {
-    if (!document.startViewTransition) return;
+    // Mark HTML as hydrated (prevents FOUC)
+    document.documentElement.classList.add('hydrated');
 
-    // Intercept navigation clicks
+    // Create loading indicator
+    const loadingBar = document.createElement('div');
+    loadingBar.className = 'page-transition-loading';
+    document.body.appendChild(loadingBar);
+
+    // Check if browser supports View Transitions API
+    if (!document.startViewTransition) {
+      // Fallback: Use simple loading bar
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+
+        if (link &&
+            link.href &&
+            link.href.startsWith(window.location.origin) &&
+            !link.href.includes('#') &&
+            !link.hasAttribute('target') &&
+            !link.hasAttribute('download')) {
+
+          loadingBar.classList.add('active');
+        }
+      });
+      return;
+    }
+
+    // Intercept navigation clicks with View Transitions
     document.addEventListener('click', (e) => {
       const link = e.target.closest('a');
 
@@ -187,6 +225,10 @@
 
         e.preventDefault();
 
+        // Show loading bar
+        loadingBar.classList.add('active');
+
+        // Start view transition with dark background
         document.startViewTransition(() => {
           window.location.href = link.href;
         });
@@ -372,6 +414,7 @@
 
   function runInit() {
     initNavigation();
+    initFooter();
     initScrollToTop();
     initRevealAnimations();
     initPageTransitions();

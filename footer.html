@@ -1,0 +1,83 @@
+<!-- ============================================
+     DRAFTNEX SOLUTIONS - FOOTER COMPONENT
+     ============================================ -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Footer Grid -->
+    <div class="footer-grid">
+
+      <!-- Company Info -->
+      <div class="footer-column">
+        <div class="footer-brand">
+          <img src="draftnex-logo.png" alt="Draftnex Solutions" class="footer-logo" loading="lazy" width="120" height="120">
+          <h3>Draftnex Solutions</h3>
+        </div>
+        <p class="footer-tagline">
+          Apps, Systeme und Automationen für Selbstständige und kleine Unternehmen.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="footer-social">
+          <a href="mailto:draftnexsolutions@outlook.de" class="social-link" aria-label="E-Mail">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Navigation</h4>
+        <nav class="footer-nav">
+          <a href="index.html">Start</a>
+          <a href="services.html">Leistungen</a>
+          <a href="about.html">Über mich</a>
+          <a href="contact.html">Kontakt</a>
+        </nav>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Services</h4>
+        <nav class="footer-nav">
+          <a href="services.html#apps">App-Entwicklung</a>
+          <a href="services.html#systems">Digitale Systeme</a>
+          <a href="services.html#automation">Automation</a>
+          <a href="services.html#support">IT-Support</a>
+        </nav>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-column">
+        <h4 class="footer-heading">Rechtliches</h4>
+        <nav class="footer-nav">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © <span id="footer-year"></span> Draftnex Solutions. Alle Rechte vorbehalten.
+      </p>
+      <p class="footer-made">
+        Made with <i class="fa-solid fa-heart"></i> in Germany
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Set current year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
